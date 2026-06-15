@@ -1,0 +1,13 @@
+{
+  "name": "Batya's Kosher Korean Kitchen",
+  "short_name": "Batya's Kitchen",
+  "description": "Hands-on kosher Korean cooking workshops in Hashmonaim, Israel.",
+  "icons": [
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#B93A2F",
+  "background_color": "#FFF4DC",
+  "display": "browser",
+  "start_url": "/"
+}
