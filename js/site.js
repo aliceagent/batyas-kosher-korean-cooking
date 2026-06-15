@@ -50,7 +50,15 @@
     ".share-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px}" +
     ".share-opt{display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1px solid rgba(58,33,24,.12);border-radius:14px;padding:13px 6px;font-weight:700;font-size:.82rem;color:var(--soy,#3A2118);cursor:pointer;text-decoration:none;font-family:inherit;transition:.15s}" +
     ".share-opt:hover{border-color:var(--kimchi-red,#B93A2F);color:var(--kimchi-red,#B93A2F);transform:translateY(-2px)}" +
-    ".share-opt svg{width:22px;height:22px}";
+    ".share-opt svg{width:22px;height:22px}" +
+    ".poster{cursor:zoom-in}" +
+    ".rgrid .poster:hover{box-shadow:0 16px 40px rgba(58,33,24,.24)}" +
+    ".lightbox{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(58,33,24,.84);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);padding:3vmin;cursor:zoom-out}" +
+    ".lightbox.open{display:flex;animation:shFade .2s ease}" +
+    ".lightbox img{max-width:94vw;max-height:94vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5);cursor:default;animation:lbPop .25s cubic-bezier(.22,1.4,.4,1)}" +
+    "@keyframes lbPop{from{transform:scale(.94);opacity:0}to{transform:none;opacity:1}}" +
+    ".lightbox-x{position:fixed;top:16px;right:20px;background:rgba(255,255,255,.94);border:none;border-radius:50%;width:46px;height:46px;font-size:1.7rem;line-height:1;color:#3A2118;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.3);z-index:301}" +
+    ".lightbox-x:hover{background:#fff}";
   var styleEl = document.createElement("style");
   styleEl.textContent = css;
   document.head.appendChild(styleEl);
@@ -211,4 +219,29 @@
     if (getComputedStyle(art).position === "static") art.style.position = "relative";
     art.appendChild(btn);
   });
+
+  /* ---------- recipe poster lightbox ---------- */
+  var posters = document.querySelectorAll("img.poster");
+  if (posters.length) {
+    var lb = el("div", "lightbox");
+    lb.innerHTML = '<button class="lightbox-x" aria-label="Close">×</button><img alt="">';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector("img");
+    function openLB(src, alt) {
+      lbImg.src = src; lbImg.alt = alt || "";
+      lb.classList.add("open"); document.body.style.overflow = "hidden";
+    }
+    function closeLB() {
+      lb.classList.remove("open"); document.body.style.overflow = ""; lbImg.removeAttribute("src");
+    }
+    posters.forEach(function (p) {
+      if (!p.title) p.title = "Click to enlarge";
+      p.addEventListener("click", function () { openLB(p.currentSrc || p.src, p.alt); });
+    });
+    lbImg.addEventListener("click", function (e) { e.stopPropagation(); }); // keep open while viewing
+    lb.addEventListener("click", closeLB);                                  // backdrop / X closes
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb.classList.contains("open")) closeLB();
+    });
+  }
 })();
