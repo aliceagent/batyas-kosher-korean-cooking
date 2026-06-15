@@ -83,6 +83,10 @@ img{max-width:100%;}
 .fbtn .b-dot{width:8px;height:8px;border-radius:50%;}
 .fbtn[data-f="meat"] .b-dot{background:var(--kimchi-red);}
 .fbtn[data-f="pareve"] .b-dot{background:var(--sage);}
+.fbtn[data-f="vegan"] .b-dot{background:#52701f;}
+.fbtn.fdl{text-decoration:none;color:var(--kimchi-red);border-color:rgba(185,58,47,.32);}
+.fbtn.fdl:hover{background:var(--kimchi-red);color:#fff;border-color:var(--kimchi-red);}
+.fbtn.fdl svg{flex:0 0 auto;}
 .fbtn:hover{border-color:var(--kimchi-red);}
 .fbtn.active{background:var(--soy);border-color:var(--soy);color:#fff;}
 .fbtn.active .b-dot{background:#fff;}
@@ -186,7 +190,8 @@ img{max-width:100%;}
         <button class="fbtn active" data-f="all">All 13</button>
         <button class="fbtn" data-f="meat"><span class="b-dot"></span>Meat</button>
         <button class="fbtn" data-f="pareve"><span class="b-dot"></span>Pareve</button>
-        <button class="fbtn" id="printBtn" title="Print these recipes">🖨 Print</button>
+        <button class="fbtn" data-f="vegan"><span class="b-dot"></span>Vegan</button>
+        <a class="fbtn fdl" href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf" title="Download the full recipe book (PDF)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Recipe PDF</a>
       </div>
       <nav class="toc" id="toc">
         <a href="#pajeon">Scallion Pancakes</a>
@@ -208,10 +213,6 @@ img{max-width:100%;}
 </div>
 
 <div class="wrap">
-  <div class="dl-row">
-    <a class="btn ghost sm" href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">⬇ Download the full recipe book (PDF)</a>
-  </div>
-
   <article id="pajeon" class="recipe reveal" data-label="pareve">
     <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Appetizer</span>
       <h2>Scallion Pancakes <span class="kr">파전 · pah-jun</span></h2></div>
@@ -440,21 +441,22 @@ img{max-width:100%;}
     revealEls.forEach(function(el){ io.observe(el); });
   } else { revealEls.forEach(function(el){ el.classList.add('is-visible'); }); }
 
-  /* Meat / Pareve filter */
+  /* Filter: all / meat / pareve / vegan (vegan = recipes site.js tagged with a vegan badge) */
   var filter = document.getElementById('filter');
   var recipes = document.querySelectorAll('.recipe');
   filter.addEventListener('click', function(e){
-    var btn = e.target.closest('.fbtn'); if(!btn || btn.id === 'printBtn') return;
-    filter.querySelectorAll('.fbtn').forEach(function(b){ if(b.id!=='printBtn') b.classList.remove('active'); });
+    var btn = e.target.closest('.fbtn');
+    if(!btn || !btn.hasAttribute('data-f')) return;   // ignore the PDF download link
+    filter.querySelectorAll('.fbtn[data-f]').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
     var f = btn.getAttribute('data-f');
     recipes.forEach(function(r){
-      r.style.display = (f === 'all' || r.getAttribute('data-label') === f) ? '' : 'none';
+      var show = (f === 'all') ? true
+        : (f === 'vegan') ? !!r.querySelector('.vegan-badge')
+        : (r.getAttribute('data-label') === f);
+      r.style.display = show ? '' : 'none';
     });
   });
-
-  /* Print */
-  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
 })();
 </script>
 </body></html>
