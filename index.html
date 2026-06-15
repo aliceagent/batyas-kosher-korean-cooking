@@ -302,6 +302,39 @@ a.step:hover .step-link{text-decoration:underline;}
 .mobile-cta .mc-txt small{display:block;color:var(--sage);font-weight:700;font-size:.72rem;}
 .mobile-cta .btn{margin-left:auto;}
 
+/* ---------- Podcast ---------- */
+#podcast{padding:28px 0 6px;}
+.pod-banner{display:flex;align-items:center;gap:20px;background:linear-gradient(115deg,var(--gochujang),var(--kimchi-red));color:#fff;border-radius:var(--radius-xl);padding:22px 26px;box-shadow:var(--shadow-soft);}
+.pod-bigplay{flex:0 0 auto;width:64px;height:64px;border-radius:50%;background:#fff;border:none;color:var(--kimchi-red);cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 22px rgba(0,0,0,.22);transition:transform .15s;}
+.pod-bigplay:hover{transform:scale(1.07);}
+.pod-bigplay svg{width:26px;height:26px;}
+.pod-bnr-txt{flex:1;min-width:0;}
+.pod-bnr-txt .pk{display:block;font-weight:800;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:2px;}
+.pod-bnr-txt h2{margin:.05em 0 .12em;color:#fff;font-size:1.5rem;line-height:1.1;}
+.pod-bnr-txt p{margin:0;color:rgba(255,255,255,.92);font-size:.97rem;}
+.pod-bnr-dur{flex:0 0 auto;font-weight:800;background:rgba(255,255,255,.18);padding:8px 14px;border-radius:var(--radius-pill);font-size:.85rem;white-space:nowrap;}
+@media(max-width:600px){.pod-banner{gap:14px;padding:18px;}.pod-bnr-txt h2{font-size:1.2rem;}.pod-bnr-dur{display:none;}.pod-bigplay{width:54px;height:54px;}}
+
+.podplayer{position:fixed;left:12px;right:12px;bottom:12px;margin:0 auto;max-width:660px;z-index:90;display:none;flex-wrap:wrap;align-items:center;gap:10px 12px;background:var(--soy);color:#fff;border-radius:16px;padding:11px 14px;box-shadow:0 18px 44px rgba(58,33,24,.42);}
+.podplayer.open{display:flex;animation:ppUp .3s cubic-bezier(.22,1.2,.4,1);}
+@keyframes ppUp{from{transform:translateY(20px);opacity:0;}to{transform:none;opacity:1;}}
+.pp-play{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:var(--kimchi-red);border:none;color:#fff;cursor:pointer;display:grid;place-items:center;}
+.pp-play svg{width:20px;height:20px;}
+.pp-info{flex:1 1 200px;min-width:0;}
+.pp-info strong{display:block;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pp-row{display:flex;align-items:center;gap:8px;margin-top:4px;}
+.pp-cur,.pp-dur{font-size:.72rem;color:rgba(255,255,255,.78);font-variant-numeric:tabular-nums;flex:0 0 auto;}
+.pp-scrub{flex:1;-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background-color:rgba(255,255,255,.25);background-image:linear-gradient(var(--gold),var(--gold));background-repeat:no-repeat;background-size:var(--p,0%) 100%;cursor:pointer;}
+.pp-scrub::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.5);}
+.pp-scrub::-moz-range-thumb{width:14px;height:14px;border:none;border-radius:50%;background:#fff;cursor:pointer;}
+.pp-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto;}
+.pp-btn{flex:0 0 auto;height:38px;min-width:38px;padding:0 9px;border-radius:10px;background:rgba(255,255,255,.13);border:none;color:#fff;cursor:pointer;display:grid;place-items:center;font-weight:800;font-size:.82rem;text-decoration:none;font-family:inherit;}
+.pp-btn:hover{background:rgba(255,255,255,.24);}
+.pp-btn svg{width:17px;height:17px;}
+.pp-close{font-size:1.3rem;background:transparent;}
+@media(max-width:560px){.pp-info{flex:1 1 calc(100% - 56px);order:2;}.pp-play{order:1;}.pp-actions{order:3;flex:1 1 100%;justify-content:space-between;}}
+body.podcast-active .mobile-cta{display:none !important;}
+
 /* ---------- Reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
 .reveal.is-visible{opacity:1;transform:translateY(0);}
@@ -435,6 +468,23 @@ a.step:hover .step-link{text-decoration:underline;}
     </div>
   </div>
 </div>
+
+<!-- ===== Podcast ===== -->
+<section id="podcast" class="reveal">
+  <div class="wrap">
+    <div class="pod-banner">
+      <button class="pod-bigplay" data-podcast-toggle aria-label="Play the podcast">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="pod-bnr-txt">
+        <span class="pk">🎧 Our Podcast</span>
+        <h2>Listen to our podcast!</h2>
+        <p>Authentic Korean barbecue in a kosher kitchen.</p>
+      </div>
+      <span class="pod-bnr-dur">36 min</span>
+    </div>
+  </div>
+</section>
 
 <!-- ===== About ===== -->
 <section id="about">
@@ -981,6 +1031,7 @@ a.step:hover .step-link{text-decoration:underline;}
         <h4>Explore</h4>
         <ul>
           <li><a href="#about">The Workshop</a></li>
+          <li><a href="#podcast">Podcast</a></li>
           <li><a href="#menu">The Menu</a></li>
           <li><a href="recipes.html">All Recipes</a></li>
           <li><a href="#kosher">Kosher</a></li>
@@ -1018,6 +1069,54 @@ a.step:hover .step-link{text-decoration:underline;}
     Join
   </a>
 </div>
+
+<!-- ===== Floating podcast player ===== -->
+<div class="podplayer" id="podplayer" aria-label="Podcast player">
+  <button class="pp-play" aria-label="Play or pause"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+  <div class="pp-info">
+    <strong>🎧 Listen to our podcast!</strong>
+    <div class="pp-row">
+      <span class="pp-cur">0:00</span>
+      <input class="pp-scrub" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek">
+      <span class="pp-dur">36:20</span>
+    </div>
+  </div>
+  <div class="pp-actions">
+    <button class="pp-btn pp-speed" title="Playback speed" aria-label="Playback speed">1×</button>
+    <a class="pp-btn pp-dl" href="audio/podcast.m4a" download="Batya's Kosher Korean Kitchen - Podcast.m4a" title="Download" aria-label="Download the podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg></a>
+    <button class="pp-btn pp-share" data-share data-share-heading="Share the podcast" data-share-title="Batya's Kosher Korean Kitchen — Podcast" data-share-text="🎧 Listen to Batya's Kosher Korean Kitchen podcast — Authentic Korean barbecue in a kosher kitchen." data-share-url="https://batyas-kosher-korean-cooking.vercel.app/#podcast" title="Share" aria-label="Share the podcast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+    <button class="pp-btn pp-close" aria-label="Close player">×</button>
+  </div>
+  <audio id="podAudio" preload="metadata" src="audio/podcast.m4a"></audio>
+</div>
+
+<script>
+(function(){
+  /* Podcast player */
+  var audio=document.getElementById('podAudio');
+  if(audio){
+    var pp=document.getElementById('podplayer');
+    var ppPlay=pp.querySelector('.pp-play'), scrub=pp.querySelector('.pp-scrub');
+    var curEl=pp.querySelector('.pp-cur'), durEl=pp.querySelector('.pp-dur'), speedBtn=pp.querySelector('.pp-speed');
+    var toggles=document.querySelectorAll('[data-podcast-toggle]');
+    var PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    var PAUSE='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+    var speeds=[1,1.5,2], si=0;
+    function fmt(t){ if(!isFinite(t)||t<0)t=0; t=Math.floor(t); var m=Math.floor(t/60),s=t%60; return m+':'+(s<10?'0':'')+s; }
+    function icons(){ var p=!audio.paused; ppPlay.innerHTML=p?PAUSE:PLAY; toggles.forEach(function(b){ b.innerHTML=p?PAUSE:PLAY; }); }
+    function openPlayer(){ pp.classList.add('open'); document.body.classList.add('podcast-active'); }
+    function toggle(){ if(audio.paused){ audio.play(); openPlayer(); } else { audio.pause(); } }
+    toggles.forEach(function(b){ b.addEventListener('click', toggle); });
+    ppPlay.addEventListener('click', toggle);
+    audio.addEventListener('play', icons); audio.addEventListener('pause', icons); audio.addEventListener('ended', icons);
+    audio.addEventListener('loadedmetadata', function(){ durEl.textContent=fmt(audio.duration); });
+    audio.addEventListener('timeupdate', function(){ curEl.textContent=fmt(audio.currentTime); if(audio.duration){ var p=(audio.currentTime/audio.duration)*100; scrub.value=p; scrub.style.setProperty('--p',p+'%'); } });
+    scrub.addEventListener('input', function(){ if(audio.duration){ audio.currentTime=(scrub.value/100)*audio.duration; scrub.style.setProperty('--p',scrub.value+'%'); } });
+    speedBtn.addEventListener('click', function(){ si=(si+1)%speeds.length; audio.playbackRate=speeds[si]; speedBtn.textContent=speeds[si]+'×'; });
+    pp.querySelector('.pp-close').addEventListener('click', function(){ audio.pause(); pp.classList.remove('open'); document.body.classList.remove('podcast-active'); });
+  }
+})();
+</script>
 
 <script>
 (function(){
