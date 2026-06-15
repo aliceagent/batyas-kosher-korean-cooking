@@ -148,6 +148,9 @@ h2.sec{color:var(--kimchi-red);font-size:clamp(1.7rem,3.4vw,2.35rem);margin:.1em
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:34px auto 0;max-width:920px;position:relative;}
 .step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 20px 22px;text-align:center;box-shadow:var(--shadow-card);transition:transform .2s,box-shadow .2s;}
 .step:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+a.step{display:block;text-decoration:none;color:inherit;}
+.step-link{display:inline-block;margin-top:12px;color:var(--kimchi-red);font-weight:800;font-size:.92rem;}
+a.step:hover .step-link{text-decoration:underline;}
 .step .num{position:absolute;top:-17px;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;font-size:1.05rem;box-shadow:0 4px 10px rgba(111,127,69,.45);border:3px solid var(--cream);font-family:'Fraunces',serif;}
 .step.is-visible .num{animation:popNum .5s cubic-bezier(.22,1.6,.4,1) both;}
 @keyframes popNum{0%{transform:translateX(-50%) scale(0);}100%{transform:translateX(-50%) scale(1);}}
@@ -464,11 +467,12 @@ h2.sec{color:var(--kimchi-red);font-size:clamp(1.7rem,3.4vw,2.35rem);margin:.1em
       <p>From joining the group to carrying home your own kimchi.</p>
     </div>
     <div class="steps">
-      <div class="step reveal">
+      <a class="step reveal" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">
         <div class="num">1</div>
         <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"/></svg></div>
         <h3>Join the WhatsApp group</h3><p>Hear when the next class is and see what's on the menu.</p>
-      </div>
+        <span class="step-link">Join the group →</span>
+      </a>
       <div class="step reveal reveal-d1">
         <div class="num">2</div>
         <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M16 3l5 5-11 11-5 1 1-5z" stroke-linejoin="round"/></svg></div>
