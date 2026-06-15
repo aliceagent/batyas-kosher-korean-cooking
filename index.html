@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batya's Kosher Korean Kitchen — Hands-On Kosher Korean Cooking Workshop in Hashmonaim</title>
+<meta name="description" content="Hands-on kosher Korean cooking workshop in Hashmonaim, Israel. Learn Korean dishes from scratch, eat everything you made together, and take home your own jar of kimchi.">
+<meta property="og:title" content="Batya's Kosher Korean Kitchen">
+<meta property="og:description" content="Cook Korean. Keep It Kosher. A hands-on kosher Korean cooking workshop in Hashmonaim — eat everything you made and take home your own kimchi.">
+<meta property="og:image" content="img/banner.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFF4DC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/banner.jpg">
+<style>
+:root{
+  --cream:#FFF4DC; --cream-2:#FFF9EC; --kimchi-red:#B93A2F; --gochujang:#8F241C;
+  --sage:#6F7F45; --scallion:#8EA65B; --gold:#E8A93A; --soy:#3A2118; --sesame:#F4D8A0;
+  --ink:#3A2A20; --muted:#7a6a58; --card:#FFFDF8;
+  --line:rgba(58,33,24,.12);
+  --shadow-soft:0 18px 45px rgba(58,33,24,.10);
+  --shadow-card:0 10px 24px rgba(58,33,24,.08);
+  --radius-xl:28px; --radius-lg:20px; --radius-pill:999px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Nunito Sans',system-ui,Segoe UI,Helvetica,Arial,sans-serif;
+  color:var(--ink); line-height:1.62; -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(232,169,58,.10), transparent 24%),
+    radial-gradient(circle at 88% 6%, rgba(111,127,69,.10), transparent 22%),
+    var(--cream);
+}
+h1,h2,h3,.brand-wordmark{font-family:'Fraunces',Georgia,serif;}
+a{color:var(--kimchi-red);}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px;}
+img{max-width:100%;}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.5em;background:var(--kimchi-red);color:#fff;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:var(--radius-pill);box-shadow:0 10px 24px rgba(185,58,47,.28);border:none;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;}
+.btn:hover{background:var(--gochujang);transform:translateY(-2px);box-shadow:0 16px 34px rgba(185,58,47,.36);}
+.btn.green{background:var(--sage);box-shadow:0 10px 24px rgba(111,127,69,.28);}
+.btn.green:hover{background:#586537;}
+.btn.ghost{background:#fff;color:var(--kimchi-red);border:2px solid var(--kimchi-red);box-shadow:none;}
+.btn.ghost:hover{background:#fff5f2;}
+.btn.sm{padding:10px 18px;font-size:.92rem;}
+.btn.pulse{animation:softPulse 4.5s ease-in-out infinite;}
+.btn .wa{width:20px;height:20px;display:inline-block;}
+@keyframes softPulse{0%,100%{box-shadow:0 10px 24px rgba(185,58,47,.26);}50%{box-shadow:0 16px 38px rgba(185,58,47,.46);}}
+
+/* ---------- Sticky header ---------- */
+.site-header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(255,244,220,.82);border-bottom:1px solid transparent;transition:border-color .25s ease,box-shadow .25s ease,background .25s ease;}
+.site-header.scrolled{border-bottom-color:rgba(143,36,28,.14);box-shadow:0 6px 20px rgba(58,33,24,.06);}
+.hrow{display:flex;align-items:center;gap:14px;padding:10px 0;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--gochujang);}
+.brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:0 4px 10px rgba(58,33,24,.12);}
+.brand-wordmark{font-weight:800;font-size:1.18rem;color:var(--kimchi-red);line-height:1;}
+.brand-wordmark small{display:block;font-family:'Nunito Sans',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:3px;}
+.nav{margin-left:auto;display:flex;align-items:center;gap:22px;}
+.nav a{text-decoration:none;color:var(--soy);font-weight:700;font-size:.95rem;}
+.nav a:hover{color:var(--kimchi-red);}
+.nav .btn{margin-left:6px;}
+.hamburger{display:none;margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;width:46px;height:42px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px;}
+.hamburger span{display:block;width:20px;height:2.4px;background:var(--gochujang);border-radius:2px;transition:.25s;}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:6px 0 14px;}
+.mobile-menu a{text-decoration:none;color:var(--soy);font-weight:700;padding:11px 8px;border-radius:12px;}
+.mobile-menu a:hover{background:#fff;color:var(--kimchi-red);}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:34px 0 14px;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--sage);font-weight:800;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:var(--radius-pill);box-shadow:var(--shadow-card);}
+.hero h1{font-size:clamp(2.3rem,5vw,3.5rem);line-height:1.04;color:var(--kimchi-red);margin:18px 0 6px;letter-spacing:-.01em;}
+.hero h1 .kk{color:var(--sage);display:block;}
+.hero .lead{font-size:1.12rem;color:var(--ink);max-width:34ch;margin:.4em 0 0;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px;}
+.hbadge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-pill);padding:8px 13px;font-weight:800;font-size:.83rem;color:var(--soy);box-shadow:var(--shadow-card);}
+.hbadge .dot{width:8px;height:8px;border-radius:50%;}
+.hbadge.k{border-color:rgba(185,58,47,.3);color:var(--gochujang);}
+.hbadge.k .dot{background:var(--kimchi-red);}
+.hbadge.s .dot{background:var(--sage);}
+.hbadge.g .dot{background:var(--gold);}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+.hero-visual{position:relative;}
+.hero-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-soft);border:6px solid #fff;transform:rotate(.6deg);}
+.hero-card img{display:block;width:100%;height:clamp(240px,42vw,440px);object-fit:cover;}
+.seal{position:absolute;z-index:3;right:-14px;top:-14px;width:124px;height:124px;animation:stampIn 900ms cubic-bezier(.22,1.4,.4,1) both;}
+.float-jar{position:absolute;left:-16px;bottom:18px;width:84px;z-index:3;animation:floaty 5.5s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(58,33,24,.18));}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-12px) rotate(2deg);}}
+@keyframes stampIn{0%{opacity:0;transform:scale(1.5) rotate(-16deg);}60%{opacity:1;}100%{opacity:1;transform:scale(1) rotate(-7deg);}}
+
+/* steam */
+.steam-wrap{position:absolute;z-index:2;top:8%;left:50%;transform:translateX(-50%);display:flex;gap:16px;pointer-events:none;}
+.steam{width:10px;height:46px;border-radius:10px;background:linear-gradient(to top,rgba(255,255,255,0),rgba(255,255,255,.8));opacity:0;animation:steamRise 3.8s ease-in-out infinite;}
+.steam:nth-child(2){animation-delay:.8s;height:60px;}
+.steam:nth-child(3){animation-delay:1.5s;}
+@keyframes steamRise{0%{transform:translateY(12px) scaleY(.6);opacity:0;}25%{opacity:.6;}100%{transform:translateY(-40px) scaleY(1.1);opacity:0;}}
+
+/* sesame drifting confetti */
+.sesame{position:absolute;width:9px;height:6px;background:var(--sesame);border-radius:50%;opacity:.55;z-index:1;animation:drift linear infinite;}
+@keyframes drift{0%{transform:translateY(-10px) rotate(0);opacity:0;}10%{opacity:.6;}100%{transform:translateY(120px) rotate(220deg);opacity:0;}}
+
+/* ---------- Trust badge strip ---------- */
+.trust{padding:6px 0 8px;}
+.badge-strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.badge-strip::-webkit-scrollbar{display:none;}
+.badge-pill{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:var(--radius-pill);padding:11px 18px;font-weight:800;color:var(--soy);font-size:.92rem;box-shadow:var(--shadow-card);}
+.badge-pill svg{flex:0 0 auto;}
+.badge-pill.red{border-color:rgba(185,58,47,.28);}
+.badge-pill.sage{border-color:rgba(111,127,69,.32);}
+
+/* ---------- Sections ---------- */
+section{padding:52px 0;}
+.section-head{text-align:center;max-width:720px;margin:0 auto 12px;}
+.kicker{display:block;color:var(--gold);font-weight:800;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+h2.sec{color:var(--kimchi-red);font-size:clamp(1.7rem,3.4vw,2.35rem);margin:.1em 0 .15em;line-height:1.1;}
+.section-head p{color:var(--muted);font-size:1.05rem;margin:.4em 0 0;}
+.lead{max-width:780px;margin:14px auto;text-align:center;font-size:1.08rem;}
+
+.divider{height:34px;background-repeat:repeat-x;background-position:center;background-size:46px 26px;opacity:.5;margin:6px 0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='46' height='26' viewBox='0 0 46 26'><path d='M0 18 Q11.5 2 23 18 T46 18' fill='none' stroke='%23B93A2F' stroke-width='2'/></svg>");}
+
+/* About info pills */
+.info{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:26px 0 8px;}
+.info .pill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:14px 20px;text-align:center;min-width:150px;box-shadow:var(--shadow-card);}
+.info .pill b{display:block;color:var(--sage);font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;}
+.info .pill span{font-size:1.08rem;font-weight:800;color:var(--soy);}
+.fineprint{max-width:760px;margin:14px auto 0;text-align:center;font-size:.96rem;color:var(--muted);}
+
+/* ---------- How it works timeline ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:34px auto 0;max-width:920px;position:relative;}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 20px 22px;text-align:center;box-shadow:var(--shadow-card);transition:transform .2s,box-shadow .2s;}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+.step .num{position:absolute;top:-17px;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;font-size:1.05rem;box-shadow:0 4px 10px rgba(111,127,69,.45);border:3px solid var(--cream);font-family:'Fraunces',serif;}
+.step.is-visible .num{animation:popNum .5s cubic-bezier(.22,1.6,.4,1) both;}
+@keyframes popNum{0%{transform:translateX(-50%) scale(0);}100%{transform:translateX(-50%) scale(1);}}
+.step .ico{margin:8px auto 12px;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:#fff6e6;}
+.step h3{margin:.2em 0;color:var(--gochujang);font-size:1.08rem;}
+.step p{margin:.3em 0 0;font-size:.95rem;color:var(--muted);}
+@media(max-width:760px){.steps{grid-template-columns:1fr;gap:30px 18px;max-width:460px;}}
+
+/* ---------- Menu ---------- */
+.menu-tabs{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:24px 0 6px;}
+.menu-tab{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-pill);padding:9px 18px;font-weight:800;font-size:.92rem;color:var(--soy);cursor:pointer;font-family:inherit;transition:.18s;}
+.menu-tab:hover{border-color:var(--kimchi-red);color:var(--kimchi-red);}
+.menu-tab.active{background:var(--kimchi-red);border-color:var(--kimchi-red);color:#fff;box-shadow:0 8px 18px rgba(185,58,47,.26);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(244px,1fr));gap:22px;margin-top:22px;}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition:transform .22s,box-shadow .22s;}
+.card:hover{transform:translateY(-7px) rotate(-.35deg);box-shadow:var(--shadow-soft);}
+.imgwrap{aspect-ratio:1/1;overflow:hidden;background:#fff;position:relative;}
+.imgwrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.card:hover .imgwrap img{transform:scale(1.06);}
+.imgwrap .kosher-chip{position:absolute;top:10px;left:10px;}
+.cardbody{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1;}
+.cardbody h3{margin:.3em 0 .1em;font-size:1.12rem;color:var(--soy);}
+.cardbody h3 .kr{color:var(--gold);font-weight:700;font-size:.86rem;}
+.cardbody p{margin:.3em 0 .5em;font-size:.92rem;color:var(--muted);}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 12px;}
+.chip{font-size:.7rem;font-weight:800;color:var(--sage);background:#f1f4e8;border-radius:var(--radius-pill);padding:3px 9px;letter-spacing:.02em;}
+.viewlink{color:var(--kimchi-red);font-weight:800;font-size:.9rem;margin-top:auto;}
+.card:hover .viewlink{text-decoration:underline;}
+.course{display:inline-block;font-size:.68rem;font-weight:800;color:var(--gold);background:#fbf1da;border-radius:var(--radius-pill);padding:3px 10px;}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;letter-spacing:.04em;color:#fff;padding:4px 11px;border-radius:var(--radius-pill);box-shadow:0 3px 8px rgba(58,33,24,.18);}
+.badge.meat{background:var(--kimchi-red);} .badge.pareve{background:var(--sage);}
+.badge .b-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9);}
+
+/* ---------- Kosher section ---------- */
+.kosher-sec{position:relative;}
+.kosher-grid{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:center;background:linear-gradient(180deg,#fffaf0,#fff5e6);border:1px solid var(--line);border-radius:var(--radius-xl);padding:38px;box-shadow:var(--shadow-card);}
+.kstamp{position:relative;display:grid;place-items:center;}
+.kstamp svg{width:230px;height:230px;}
+.kstamp.is-visible svg{animation:stampLand 800ms cubic-bezier(.22,1.5,.36,1) both;}
+@keyframes stampLand{0%{opacity:0;transform:scale(1.3) rotate(-10deg);}100%{opacity:1;transform:scale(1) rotate(-4deg);}}
+.kburst{position:absolute;inset:0;pointer-events:none;}
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 15px;display:flex;gap:11px;align-items:flex-start;box-shadow:var(--shadow-card);}
+.pcard .pi{flex:0 0 auto;margin-top:1px;}
+.pcard b{display:block;color:var(--gochujang);font-size:.98rem;}
+.pcard span{font-size:.88rem;color:var(--muted);}
+@media(max-width:720px){.kosher-grid{grid-template-columns:1fr;gap:24px;padding:26px;text-align:center;}.proof{grid-template-columns:1fr;text-align:left;}.kstamp svg{width:190px;height:190px;}}
+
+/* ---------- Culture cards ---------- */
+.culture-list{display:grid;gap:18px;margin-top:30px;max-width:900px;margin-left:auto;margin-right:auto;}
+.cult{display:grid;grid-template-columns:88px 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px 24px;box-shadow:var(--shadow-card);}
+.cult:nth-child(even){grid-template-columns:1fr 88px;}
+.cult:nth-child(even) .cult-ico{order:2;}
+.cult-ico{width:88px;height:88px;display:grid;place-items:center;background:#fff6e6;border-radius:22px;}
+.cult h3{margin:0 0 4px;color:var(--gochujang);font-size:1.2rem;}
+.cult h3 .kr{font-size:.82rem;color:var(--gold);font-weight:700;}
+.cult p{margin:0;color:var(--muted);font-size:.97rem;}
+@media(max-width:560px){.cult,.cult:nth-child(even){grid-template-columns:64px 1fr;gap:14px;padding:18px;}.cult:nth-child(even) .cult-ico{order:0;}.cult-ico{width:64px;height:64px;border-radius:18px;}}
+
+/* ---------- Sample menus ---------- */
+.menus{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;}
+.menucard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-card);}
+.menucard .tag{display:inline-block;color:var(--gold);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;}
+.menucard h3{color:var(--kimchi-red);margin:.15em 0 .5em;font-size:1.3rem;}
+.menucard ul{margin:.4em 0 0;padding:0;list-style:none;}
+.menucard li{margin:.45em 0;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:.4em;font-weight:600;}
+.menucard li:last-child{border-bottom:none;}
+.menucard li a{color:inherit;text-decoration:none;transition:color .15s;}
+.menucard li a:hover{color:var(--kimchi-red);text-decoration:underline;}
+.menucard .plus{margin:.8em 0 0;color:var(--sage);font-weight:800;font-size:.95rem;}
+.menucard .plus a{color:inherit;text-decoration:underline;}
+.menucard .plus a:hover{color:var(--kimchi-red);}
+@media(max-width:620px){.menus{grid-template-columns:1fr;}}
+
+/* ---------- Map ---------- */
+.map-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;}
+.map-card{position:relative;display:block;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-soft);border:6px solid #fff;background:#e6ead2;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.map-card:hover{transform:translateY(-3px);box-shadow:0 22px 52px rgba(58,33,24,.16);}
+.map-card svg{display:block;width:100%;height:auto;}
+.map-hint{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:rgba(255,253,248,.95);border:1px solid var(--line);border-radius:var(--radius-pill);padding:7px 13px;font-weight:800;font-size:.82rem;color:var(--gochujang);box-shadow:var(--shadow-card);transition:background .2s,color .2s;}
+.map-card:hover .map-hint{background:var(--kimchi-red);color:#fff;}
+.map-copy h2{margin-top:0;}
+.map-copy .addr{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--gochujang);margin:10px 0 4px;font-size:1.05rem;}
+@media(max-width:760px){.map-grid{grid-template-columns:1fr;gap:22px;}}
+
+/* roads draw + pin drop when visible (default state stays visible, so reduced-motion / no-JS still shows them) */
+.map-card .road{stroke-dasharray:1;stroke-dashoffset:0;}
+.map-card.is-visible .road{animation:roadDraw 1.5s ease backwards;}
+.map-card.is-visible .road.r2{animation-delay:.25s;}
+.map-card.is-visible .road.r3{animation-delay:.5s;}
+@keyframes roadDraw{from{stroke-dashoffset:1;}to{stroke-dashoffset:0;}}
+.pin{transform-origin:center bottom;}
+.map-card.is-visible .pin{animation:pinDrop .7s cubic-bezier(.3,1.5,.5,1) backwards .9s;}
+@keyframes pinDrop{0%{opacity:0;transform:translateY(-42px);}70%{opacity:1;transform:translateY(4px);}100%{opacity:1;transform:translateY(0);}}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:780px;margin:26px auto 0;}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;box-shadow:var(--shadow-card);overflow:hidden;}
+.faq summary{list-style:none;cursor:pointer;padding:17px 50px 17px 20px;font-weight:800;color:var(--soy);position:relative;font-size:1.02rem;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"";position:absolute;right:20px;top:50%;width:11px;height:11px;border-right:2.4px solid var(--kimchi-red);border-bottom:2.4px solid var(--kimchi-red);transform:translateY(-65%) rotate(45deg);transition:transform .25s;}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg);}
+.faq .ans{padding:0 20px 18px;color:var(--muted);font-size:.98rem;}
+.faq details[open] .ans{animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+
+/* ---------- Downloads ---------- */
+.downloads{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:30px;}
+.dl-card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-card);text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;}
+.dl-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft);}
+.dl-ico{width:50px;height:50px;display:grid;place-items:center;border-radius:14px;background:#fff6e6;margin-bottom:4px;}
+.dl-card h3{margin:0;color:var(--gochujang);font-size:1.1rem;}
+.dl-card p{margin:0;color:var(--muted);font-size:.92rem;flex:1;}
+.dl-meta{display:inline-flex;align-items:center;gap:7px;color:var(--kimchi-red);font-weight:800;font-size:.9rem;margin-top:6px;}
+.dl-card:hover .dl-meta{text-decoration:underline;}
+.dl-meta .sz{color:var(--muted);font-weight:700;font-size:.8rem;text-decoration:none;}
+
+/* ---------- Join ---------- */
+.join{background:linear-gradient(180deg,#fff,#fdf3e2);border:1px solid var(--line);border-radius:var(--radius-xl);padding:34px;text-align:center;max-width:820px;margin:0 auto;box-shadow:var(--shadow-card);}
+.join img.qr{width:188px;height:188px;border:8px solid #fff;border-radius:18px;box-shadow:var(--shadow-card);}
+.joinrow{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+.download{text-align:center;margin-top:14px;}
+
+/* ---------- Footer ---------- */
+.site-footer{background:
+    radial-gradient(circle at 90% 0%, rgba(185,58,47,.18), transparent 40%),
+    var(--soy);
+  color:#f3e7d6;margin-top:40px;padding:48px 0 120px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;}
+.foot-brand .brand-wordmark{color:#fff;font-size:1.4rem;}
+.foot-brand .brand-wordmark small{color:var(--scallion);}
+.foot-brand p{color:#d8c7b2;font-size:.95rem;max-width:34ch;margin:.8em 0 0;}
+.site-footer h4{font-family:'Fraunces',serif;color:#fff;margin:0 0 12px;font-size:1.05rem;}
+.site-footer ul{list-style:none;margin:0;padding:0;}
+.site-footer li{margin:.5em 0;}
+.site-footer a{color:#ecd9c2;text-decoration:none;font-weight:600;}
+.site-footer a:hover{color:#fff;}
+.foot-kosher{margin-top:8px;display:flex;align-items:center;gap:9px;color:#e9d7bf;font-size:.92rem;}
+.foot-bar{border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:18px;text-align:center;color:#cbb79e;font-size:.86rem;}
+.foot-bar b{color:#fff;}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px;}.foot-brand{grid-column:1 / -1;}}
+
+/* ---------- Sticky mobile CTA ---------- */
+.mobile-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;align-items:center;gap:12px;background:rgba(255,253,248,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:var(--radius-pill);padding:9px 9px 9px 18px;box-shadow:0 14px 34px rgba(58,33,24,.22);}
+.mobile-cta .mc-txt{font-weight:800;font-size:.9rem;color:var(--soy);line-height:1.15;}
+.mobile-cta .mc-txt small{display:block;color:var(--sage);font-weight:700;font-size:.72rem;}
+.mobile-cta .btn{margin-left:auto;}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.09s;} .reveal-d2{transition-delay:.18s;} .reveal-d3{transition-delay:.27s;}
+.reveal-d4{transition-delay:.36s;} .reveal-d5{transition-delay:.45s;}
+
+/* ---------- Responsive ---------- */
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:26px;}
+  .hero-visual{order:-1;}
+  .hero .lead{max-width:none;}
+  .nav{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:720px){
+  .mobile-cta{display:flex;}
+  body{padding-bottom:84px;}
+  section{padding:42px 0;}
+}
+@media(min-width:881px){.hamburger,.mobile-menu{display:none !important;}}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  .reveal{opacity:1;transform:none;}
+}
+</style></head>
+<body>
+
+<!-- ===== Sticky Header ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <div class="hrow">
+      <a class="brand" href="#top">
+        <img src="img/logo.jpg" alt="Batya's Kosher Korean Kitchen logo">
+        <span class="brand-wordmark">Batya's Kitchen<small>Kosher Korean</small></span>
+      </a>
+      <nav class="nav">
+        <a href="#about">Workshop</a>
+        <a href="#menu">Menu</a>
+        <a href="#kosher">Kosher</a>
+        <a href="#culture">Culture</a>
+        <a href="#location">Location</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn sm" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">Join</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">Workshop</a>
+      <a href="#how">How it works</a>
+      <a href="#menu">Menu</a>
+      <a href="#kosher">Kosher</a>
+      <a href="#culture">Culture</a>
+      <a href="#location">Location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#downloads">Downloads</a>
+      <a href="#join">Join the WhatsApp group</a>
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Hands-on · Kosher · Korean · Delicious</span>
+        <h1>Cook Korean.<span class="kk">Keep It Kosher.</span></h1>
+        <p class="lead">A hands-on kosher Korean cooking workshop in Hashmonaim where you cook beloved Korean dishes from scratch, eat everything you made, and take home your own jar of kimchi.</p>
+        <div class="hero-badges">
+          <span class="hbadge k"><span class="dot"></span>100% Kosher</span>
+          <span class="hbadge k"><span class="dot"></span>No Pork · No Shellfish</span>
+          <span class="hbadge s"><span class="dot"></span>Meat / Pareve Labeled</span>
+          <span class="hbadge g"><span class="dot"></span>3-Hour Class</span>
+          <span class="hbadge s"><span class="dot"></span>Hashmonaim, Israel</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn pulse" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">
+            <svg class="wa" viewBox="0 0 24 24" fill="#fff"><path d="M.06 24l1.68-6.13A11.86 11.86 0 0 1 .16 11.9C.16 5.34 5.5.01 12.05.01a11.82 11.82 0 0 1 8.41 3.49 11.8 11.8 0 0 1 3.48 8.42c0 6.55-5.34 11.89-11.89 11.89a11.9 11.9 0 0 1-5.69-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.39 1.59 5.44 0 9.87-4.43 9.88-9.88a9.85 9.85 0 0 0-16.82-6.99 9.82 9.82 0 0 0-2.9 6.98c0 2.22.65 3.88 1.74 5.62l-.99 3.62 3.7-.97zm10.74-4.92c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.88 1.21 3.08.15.2 2.09 3.2 5.07 4.48.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42z"/></svg>
+            Join the WhatsApp Group
+          </a>
+          <a class="btn ghost" href="#menu">See the Menu</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-card" id="heroCard">
+          <div class="steam-wrap"><span class="steam"></span><span class="steam"></span><span class="steam"></span></div>
+          <img src="img/banner.jpg" alt="A balanced spread of kosher Korean dishes" width="1672" height="941">
+          <!-- Kosher seal -->
+          <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+            <g>
+              <path id="sb" fill="#B93A2F" d="M60 4l8.2 7.5 10.8-3.1 4.7 10.3 11.2.7 .7 11.2 10.3 4.7-3.1 10.8 7.5 8.2-7.5 8.2 3.1 10.8-10.3 4.7-.7 11.2-11.2.7-4.7 10.3-10.8-3.1L60 116l-8.2-7.5-10.8 3.1-4.7-10.3-11.2-.7-.7-11.2-10.3-4.7 3.1-10.8L4 60l7.5-8.2-3.1-10.8 10.3-4.7.7-11.2 11.2-.7 4.7-10.3 10.8 3.1z"/>
+              <circle cx="60" cy="60" r="42" fill="#fff"/>
+              <circle cx="60" cy="60" r="42" fill="none" stroke="#E8A93A" stroke-width="2.5"/>
+              <text x="60" y="57" text-anchor="middle" font-family="Fraunces,serif" font-weight="800" font-size="22" fill="#B93A2F">100%</text>
+              <text x="60" y="77" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-weight="800" font-size="16" letter-spacing="2" fill="#6F7F45">KOSHER</text>
+            </g>
+          </svg>
+          <!-- floating kimchi jar -->
+          <svg class="float-jar" viewBox="0 0 70 90" aria-hidden="true">
+            <rect x="14" y="6" width="42" height="9" rx="3" fill="#8EA65B"/>
+            <rect x="11" y="14" width="48" height="70" rx="12" fill="#fff" stroke="#3A2118" stroke-width="2.5"/>
+            <path d="M13 40 h44 v32 a10 10 0 0 1-10 10 H23 a10 10 0 0 1-10-10 z" fill="#B93A2F"/>
+            <path d="M16 46c6 4 10-3 16 1s10-2 18 2" stroke="#8F241C" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <rect x="22" y="22" width="26" height="14" rx="3" fill="#FFF4DC" stroke="#E8A93A" stroke-width="1.6"/>
+            <text x="35" y="32" text-anchor="middle" font-family="Fraunces,serif" font-size="8" font-weight="800" fill="#B93A2F">KIMCHI</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Trust badge strip ===== -->
+<div class="trust">
+  <div class="wrap">
+    <div class="badge-strip">
+      <span class="badge-pill red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B93A2F" stroke-width="2"><path d="M12 2l2.4 5.9L20.7 8l-4.8 4 1.8 6.4L12 15l-5.7 3.4L8.1 12 3.3 8l6.3-.1z" stroke-linejoin="round"/></svg>Strictly Kosher</span>
+      <span class="badge-pill red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B93A2F" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 19L19 5"/></svg>No Pork</span>
+      <span class="badge-pill red"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B93A2F" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 19L19 5"/></svg>No Shellfish</span>
+      <span class="badge-pill sage"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>Meat / Pareve Labeled</span>
+      <span class="badge-pill sage"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Beginner Friendly</span>
+      <span class="badge-pill sage"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M12 3C7 8 7 13 12 21c5-8 5-13 0-18z"/></svg>Israel-Friendly Ingredients</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== About ===== -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">The Workshop</span>
+      <h2 class="sec">A Cozy Korean Cooking Night, Made Kosher</h2>
+      <p>Three hands-on hours · all levels welcome · come solo, as a date night, or with a group of friends.</p>
+    </div>
+    <p class="lead reveal">Spend three hands-on hours learning to cook beloved Korean dishes from scratch — crispy pancakes, sizzling bulgogi, glossy japchae and sweet molten hotteok. Every recipe is 100% kosher, beginner-friendly, and made with ingredients you can find right here in Israel. Come on your own to learn something new and meet people, bring someone for a wonderful date night, or book in with a group of friends.</p>
+    <div class="info reveal">
+      <div class="pill"><b>Where</b><span>Hashmonaim, Israel</span></div>
+      <div class="pill"><b>How long</b><span>3 hours</span></div>
+      <div class="pill"><b>Price</b><span>350 NIS / person</span></div>
+      <div class="pill"><b>Pay with</b><span>Bit · Paybox · Cash</span></div>
+    </div>
+    <p class="fineprint reveal">The exact street address is shared after you sign up via the WhatsApp group.</p>
+    <p class="fineprint reveal"><b style="color:var(--soy)">Drinks:</b> soft drinks, beer and saké are available to purchase separately at dinner. <b style="color:var(--soy)">Spice:</b> we keep it adjustable — the spicy cucumber salad, dak-galbi chicken, braised tofu and your kimchi can be made as mild or as fiery as you like, and bibimbap's gochujang goes on to taste. Everything else is gentle and non-spicy.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== How it works ===== -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Six Easy Steps</span>
+      <h2 class="sec">How It Works</h2>
+      <p>From joining the group to carrying home your own kimchi.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z" stroke-linejoin="round"/></svg></div>
+        <h3>Join the WhatsApp group</h3><p>Hear when the next class is and see what's on the menu.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="num">2</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M16 3l5 5-11 11-5 1 1-5z" stroke-linejoin="round"/></svg></div>
+        <h3>Sign up</h3><p>Reserve your spot for the class you want.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="num">3</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4" stroke-linecap="round"/></svg></div>
+        <h3>Read the checklist</h3><p>Check <a href="what-to-bring.pdf" download>what to bring</a> before the big day.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">4</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M4 13h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 13V8M9 5c0 1.5 0 1.5 0 3M15 5c0 1.5 0 1.5 0 3M3 21h18" stroke-linecap="round"/></svg></div>
+        <h3>Cook together</h3><p>Hands-on at your own station, guided step by step.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="num">5</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M17 3c-2 1-2 6-2 8h4c0-2 0-7-2-8zM15 11v10" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Eat the spread</h3><p>Sit down and feast on the whole spread you made.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="num">6</div>
+        <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M4 12h16M9 8V5h6v3" stroke-linecap="round"/></svg></div>
+        <h3>Take home kimchi</h3><p>Leave with the recipe book and your own jar of kimchi.</p>
+      </div>
+    </div>
+    <div class="download reveal" style="margin-top:28px;">
+      <a class="btn ghost" href="what-to-bring.pdf" download="Batya's Kosher Korean Kitchen - What to Bring.pdf">⬇ What to bring — printable checklist (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Menu ===== -->
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">13 Dishes</span>
+      <h2 class="sec">What You Might Make</h2>
+      <p>Tap any dish to see the full recipe. Each class runs one set menu.</p>
+    </div>
+    <div class="menu-tabs reveal" id="menuTabs">
+      <button class="menu-tab active" data-filter="all">All</button>
+      <button class="menu-tab" data-filter="appetizers">Appetizers</button>
+      <button class="menu-tab" data-filter="sides">Sides</button>
+      <button class="menu-tab" data-filter="mains">Mains</button>
+      <button class="menu-tab" data-filter="desserts">Desserts</button>
+      <button class="menu-tab" data-filter="takehome">Take-Home</button>
+    </div>
+    <div class="grid" id="menuGrid">
+
+      <a class="card reveal" href="recipes.html#pajeon" data-cat="appetizers">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/pajeon.jpg" alt="Scallion Pancakes"></div>
+        <div class="cardbody">
+          <span class="course">Appetizer</span>
+          <h3>Scallion Pancakes <span class="kr">파전</span></h3>
+          <p>Crispy savoury scallion pancakes with a soy-vinegar dip.</p>
+          <div class="chips"><span class="chip">crispy</span><span class="chip">savory</span><span class="chip">scallion</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d1" href="recipes.html#mandu" data-cat="appetizers">
+        <div class="imgwrap"><span class="badge meat kosher-chip"><span class="b-dot"></span>MEAT</span><img loading="lazy" src="img/mandu.jpg" alt="Beef Dumplings"></div>
+        <div class="cardbody">
+          <span class="course">Appetizer</span>
+          <h3>Beef Dumplings <span class="kr">만두</span></h3>
+          <p>Pan-fried beef dumplings with golden crisp bottoms.</p>
+          <div class="chips"><span class="chip">pan-fried</span><span class="chip">savory</span><span class="chip">juicy</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d2" href="recipes.html#gyeranmari" data-cat="appetizers">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/gyeranmari.jpg" alt="Rolled Omelette"></div>
+        <div class="cardbody">
+          <span class="course">Appetizer</span>
+          <h3>Rolled Omelette <span class="kr">계란말이</span></h3>
+          <p>A golden rolled omelette spiral flecked with veg.</p>
+          <div class="chips"><span class="chip">soft</span><span class="chip">golden</span><span class="chip">mild</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal" href="recipes.html#oimuchim" data-cat="sides">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/oimuchim.jpg" alt="Spicy Cucumber Salad"></div>
+        <div class="cardbody">
+          <span class="course">Side Dish</span>
+          <h3>Spicy Cucumber Salad <span class="kr">오이무침</span></h3>
+          <p>Quick, spicy smashed-cucumber salad with sesame.</p>
+          <div class="chips"><span class="chip">spicy</span><span class="chip">crunchy</span><span class="chip">fresh</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d1" href="recipes.html#sigeumchi" data-cat="sides">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/sigeumchi.jpg" alt="Sesame Spinach"></div>
+        <div class="cardbody">
+          <span class="course">Side Dish</span>
+          <h3>Sesame Spinach <span class="kr">시금치나물</span></h3>
+          <p>Tender sesame spinach — the classic Korean side.</p>
+          <div class="chips"><span class="chip">sesame</span><span class="chip">tender</span><span class="chip">classic</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d2" href="recipes.html#bulgogi" data-cat="mains">
+        <div class="imgwrap"><span class="badge meat kosher-chip"><span class="b-dot"></span>MEAT</span><img loading="lazy" src="img/bulgogi.jpg" alt="Marinated Beef"></div>
+        <div class="cardbody">
+          <span class="course">Main Dish</span>
+          <h3>Marinated Beef <span class="kr">불고기</span></h3>
+          <p>Sweet-soy marinated beef, seared hot and fast.</p>
+          <div class="chips"><span class="chip">sweet</span><span class="chip">smoky</span><span class="chip">savory</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal" href="recipes.html#dakgalbi" data-cat="mains">
+        <div class="imgwrap"><span class="badge meat kosher-chip"><span class="b-dot"></span>MEAT</span><img loading="lazy" src="img/dakgalbi.jpg" alt="Spicy Gochujang Chicken"></div>
+        <div class="cardbody">
+          <span class="course">Main Dish</span>
+          <h3>Spicy Gochujang Chicken <span class="kr">닭갈비</span></h3>
+          <p>Spicy gochujang chicken with cabbage &amp; sweet potato.</p>
+          <div class="chips"><span class="chip">spicy</span><span class="chip">saucy</span><span class="chip">bold</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d1" href="recipes.html#bibimbap" data-cat="mains">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/bibimbap.jpg" alt="Mixed Rice Bowl"></div>
+        <div class="cardbody">
+          <span class="course">Main Dish</span>
+          <h3>Mixed Rice Bowl <span class="kr">비빔밥</span></h3>
+          <p>The famous mixed rice bowl — the star of our logo!</p>
+          <div class="chips"><span class="chip">colorful</span><span class="chip">fresh</span><span class="chip">gochujang</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d2" href="recipes.html#japchae" data-cat="mains">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/japchae.jpg" alt="Glass Noodle Stir-Fry"></div>
+        <div class="cardbody">
+          <span class="course">Main Dish</span>
+          <h3>Glass Noodle Stir-Fry <span class="kr">잡채</span></h3>
+          <p>Glossy sweet-potato glass noodles with vegetables.</p>
+          <div class="chips"><span class="chip">glossy</span><span class="chip">sweet</span><span class="chip">springy</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal" href="recipes.html#dubujorim" data-cat="sides">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/dubujorim.jpg" alt="Braised Tofu"></div>
+        <div class="cardbody">
+          <span class="course">Side Dish</span>
+          <h3>Braised Tofu <span class="kr">두부조림</span></h3>
+          <p>Golden braised tofu glazed in savoury soy sauce.</p>
+          <div class="chips"><span class="chip">saucy</span><span class="chip">sesame</span><span class="chip">savory</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d1" href="recipes.html#hotteok" data-cat="desserts">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/hotteok.jpg" alt="Sweet Filled Pancakes"></div>
+        <div class="cardbody">
+          <span class="course">Dessert</span>
+          <h3>Sweet Filled Pancakes <span class="kr">호떡</span></h3>
+          <p>Sweet pancakes with a molten brown-sugar centre.</p>
+          <div class="chips"><span class="chip">sweet</span><span class="chip">molten</span><span class="chip">crispy</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal reveal-d2" href="recipes.html#honeytteok" data-cat="desserts">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/honeytteok.jpg" alt="Sweet Rice Cakes"></div>
+        <div class="cardbody">
+          <span class="course">Dessert</span>
+          <h3>Sweet Rice Cakes <span class="kr">꿀떡</span></h3>
+          <p>Chewy honey rice cakes rolled in toasted sesame.</p>
+          <div class="chips"><span class="chip">chewy</span><span class="chip">sweet</span><span class="chip">sesame</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+      <a class="card reveal" href="recipes.html#kimchi" data-cat="takehome">
+        <div class="imgwrap"><span class="badge pareve kosher-chip"><span class="b-dot"></span>PAREVE</span><img loading="lazy" src="img/kimchi.jpg" alt="Napa Cabbage Kimchi"></div>
+        <div class="cardbody">
+          <span class="course">Take-Home Gift</span>
+          <h3>Napa Cabbage Kimchi <span class="kr">김치</span></h3>
+          <p>Make your own jar to ferment and take home.</p>
+          <div class="chips"><span class="chip">fermented</span><span class="chip">spicy</span><span class="chip">take-home</span></div>
+          <span class="viewlink">View recipe →</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="download reveal" style="margin-top:28px;">
+      <a class="btn ghost" href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">⬇ Download the full recipe book (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Kosher ===== -->
+<section id="kosher" class="kosher-sec">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Strictly Kosher</span>
+      <h2 class="sec">Kosher Korean, Without Compromise</h2>
+      <p>Every dish is strictly kosher, clearly labelled, and made with kosher-certified Korean staples.</p>
+    </div>
+    <div class="kosher-grid reveal">
+      <div class="kstamp" id="kstamp">
+        <svg viewBox="0 0 220 220" aria-label="100% Kosher seal">
+          <g transform="rotate(-4 110 110)">
+            <circle cx="110" cy="110" r="98" fill="#B93A2F"/>
+            <circle cx="110" cy="110" r="98" fill="none" stroke="#8F241C" stroke-width="3" stroke-dasharray="2 7"/>
+            <circle cx="110" cy="110" r="80" fill="#FFF4DC"/>
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#E8A93A" stroke-width="3"/>
+            <!-- Star of David -->
+            <g transform="translate(110 62)" stroke="#6F7F45" stroke-width="3.4" fill="none" stroke-linejoin="round">
+              <path d="M0 -17 L14.7 8.5 L-14.7 8.5 Z"/>
+              <path d="M0 17 L14.7 -8.5 L-14.7 -8.5 Z"/>
+            </g>
+            <text x="110" y="118" text-anchor="middle" font-family="Fraunces,serif" font-weight="800" font-size="34" fill="#B93A2F">100%</text>
+            <text x="110" y="146" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-weight="800" font-size="24" letter-spacing="3" fill="#6F7F45">KOSHER</text>
+            <text x="110" y="167" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-weight="700" font-size="8.5" letter-spacing=".5" fill="#8F241C">NO PORK · NO SHELLFISH</text>
+          </g>
+        </svg>
+      </div>
+      <div class="proof">
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Strictly kosher kitchen</b><span>Every dish is prepared to a strict kosher standard.</span></div></div>
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Meat &amp; Pareve labeled</b><span>Clearly marked and never mixed — tools kept separate.</span></div></div>
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>No pork, no shellfish</b><span>Ever. Not in any dish, sauce or stock.</span></div></div>
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Kosher-swapped staples</b><span>Soy sauce for fish sauce; kosher gochujang &amp; gochugaru; no anchovy stock.</span></div></div>
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Pareve options for mains</b><span>Most mains have a vegetarian / pareve version.</span></div></div>
+        <div class="pcard"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2.2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Allergy-aware</b><span>Tell us in advance and we'll guide your dish choices.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Culture ===== -->
+<section id="culture">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">The Traditions</span>
+      <h2 class="sec">A Taste of Korean Food Culture</h2>
+      <p>The warmth and traditions behind the dishes you'll make.</p>
+    </div>
+    <div class="culture-list">
+      <div class="cult reveal">
+        <div class="cult-ico"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#B93A2F" stroke-width="2.4"><ellipse cx="24" cy="30" rx="16" ry="8"/><path d="M8 30c0 5 7 9 16 9s16-4 16-9" stroke-linecap="round"/><path d="M18 22c0-3 2-5 6-5s6 2 6 5" stroke-linecap="round"/></svg></div>
+        <div><h3>Banchan <span class="kr">반찬</span></h3><p>Little side dishes shared around the table — everyone reaches in together. There's no "starter then main"; the table simply fills up, and the joy is in the variety and the company.</p></div>
+      </div>
+      <div class="cult reveal">
+        <div class="cult-ico"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#6F7F45" stroke-width="2.4"><path d="M10 26h28c0 7-6 12-14 12S10 33 10 26z"/><path d="M16 21c0-2 1-3 2-4M24 20c0-2 1-3 2-4M32 21c0-2 1-3 2-4" stroke-linecap="round"/></svg></div>
+        <div><h3>Bap <span class="kr">밥</span></h3><p>Rice sits at the centre of the meal — so central that a common Korean greeting, "Have you eaten rice?", really means "Are you well?".</p></div>
+      </div>
+      <div class="cult reveal">
+        <div class="cult-ico"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#B93A2F" stroke-width="2.4"><rect x="14" y="6" width="20" height="6" rx="2"/><rect x="11" y="12" width="26" height="30" rx="7"/><path d="M13 26h22" /><path d="M16 32c4 2 6-2 10 0s5-1 6 0" stroke-linecap="round"/></svg></div>
+        <div><h3>Kimchi &amp; Fermentation <span class="kr">김장</span></h3><p>Fermentation is the soul of the cuisine — kimchi and the trio of <i>jang</i>. The autumn ritual of <i>kimjang</i> is UNESCO cultural heritage. You'll take home your own jar.</p></div>
+      </div>
+      <div class="cult reveal">
+        <div class="cult-ico"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#E8A93A" stroke-width="2.4"><circle cx="24" cy="24" r="15"/><path d="M24 9v30M9 24h30" /></svg></div>
+        <div><h3>Balance <span class="kr">오방색</span></h3><p>Cooks chase balance — the five colours of <i>obangsaek</i> make a plate both beautiful and nourishing, while seasonings harmonise salty, sweet, sour, bitter and spicy.</p></div>
+      </div>
+      <div class="cult reveal">
+        <div class="cult-ico"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#B93A2F" stroke-width="2.4"><path d="M24 40C10 30 6 22 10 16c3-4 9-4 14 2 5-6 11-6 14-2 4 6 0 14-14 24z" stroke-linejoin="round"/></svg></div>
+        <div><h3>Jeong <span class="kr">정</span></h3><p>Underlying it all is <i>jeong</i> — a warm affection expressed by feeding people generously. Cooking it yourself is the best way to taste why Korean food has won the world over.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Sample menus ===== -->
+<section id="sets">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Two Sets</span>
+      <h2 class="sec">Two Sample Menus</h2>
+      <p>Each class runs one set — here's the kind of spread you'll make.</p>
+    </div>
+    <div class="menus">
+      <div class="menucard reveal">
+        <span class="tag">Set 1</span><h3>Sizzle &amp; Comfort</h3>
+        <ul>
+          <li><a href="recipes.html#pajeon">Scallion Pancakes</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#gyeranmari">Rolled Omelette</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#oimuchim">Spicy Cucumber Salad</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#bulgogi">Marinated Beef</a> <span class="badge meat"><span class="b-dot"></span>MEAT</span></li>
+          <li><a href="recipes.html#bibimbap">Mixed Rice Bowl</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#hotteok">Sweet Filled Pancakes</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+        </ul>
+        <p class="plus">+ your own take-home jar of <a href="recipes.html#kimchi">Kimchi</a></p>
+      </div>
+      <div class="menucard reveal reveal-d1">
+        <span class="tag">Set 2</span><h3>Spice &amp; Noodles</h3>
+        <ul>
+          <li><a href="recipes.html#mandu">Beef Dumplings</a> <span class="badge meat"><span class="b-dot"></span>MEAT</span></li>
+          <li><a href="recipes.html#sigeumchi">Sesame Spinach</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#dubujorim">Braised Tofu</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#dakgalbi">Spicy Gochujang Chicken</a> <span class="badge meat"><span class="b-dot"></span>MEAT</span></li>
+          <li><a href="recipes.html#japchae">Glass Noodle Stir-Fry</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+          <li><a href="recipes.html#honeytteok">Sweet Rice Cakes</a> <span class="badge pareve"><span class="b-dot"></span>PAREVE</span></li>
+        </ul>
+        <p class="plus">+ your own take-home jar of <a href="recipes.html#kimchi">Kimchi</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Location / Map ===== -->
+<section id="location">
+  <div class="wrap">
+    <div class="map-grid">
+      <a class="map-card reveal" id="mapCard" href="https://www.google.com/maps/search/?api=1&amp;query=Hashmonaim%2C+Israel" target="_blank" rel="noopener" aria-label="Open Hashmonaim, Israel in Google Maps">
+        <svg viewBox="0 0 600 380" role="img" aria-label="Map of central Israel showing Hashmonaim between Tel Aviv and Jerusalem, with major highways">
+          <!-- land base -->
+          <rect width="600" height="380" fill="#e6ead2"/>
+          <!-- Judean hills near Jerusalem (east) -->
+          <g fill="#d6deb8" opacity=".85">
+            <circle cx="468" cy="150" r="46"/><circle cx="522" cy="118" r="38"/>
+            <circle cx="546" cy="205" r="44"/><circle cx="498" cy="252" r="40"/><circle cx="430" cy="248" r="32"/>
+          </g>
+          <!-- Mediterranean Sea (west) -->
+          <path d="M0 0 H72 C60 80 76 150 62 220 C52 290 68 332 60 380 H0 Z" fill="#bcd4d2"/>
+          <path d="M72 0 C60 80 76 150 62 220 C52 290 68 332 60 380" fill="none" stroke="#a6c2c0" stroke-width="2"/>
+          <text x="28" y="196" fill="#5f8c88" font-family="Nunito Sans,sans-serif" font-weight="800" font-size="11" letter-spacing="1.5" transform="rotate(-90 28 196)" text-anchor="middle" opacity=".85">MED. SEA</text>
+
+          <!-- Roads (draw in when visible) -->
+          <path class="road r1" pathLength="1" d="M98 152 C 230 240 380 252 512 224" fill="none" stroke="#ccb284" stroke-width="7" stroke-linecap="round"/>
+          <path class="road r2" pathLength="1" d="M150 168 C 250 120 300 132 332 150 C 432 196 480 212 512 224" fill="none" stroke="#ccb284" stroke-width="6" stroke-linecap="round"/>
+          <path class="road r3" pathLength="1" d="M252 14 C234 120 264 250 248 366" fill="none" stroke="#ccb284" stroke-width="6" stroke-linecap="round"/>
+
+          <!-- Route shields -->
+          <g font-family="Nunito Sans,sans-serif" font-weight="800" text-anchor="middle">
+            <g transform="translate(298 256)"><rect x="-11" y="-11" width="22" height="22" rx="6" fill="#B93A2F"/><text y="5" font-size="13" fill="#fff">1</text></g>
+            <g transform="translate(444 200)"><rect x="-19" y="-11" width="38" height="22" rx="6" fill="#6F7F45"/><text y="5" font-size="12" fill="#fff">443</text></g>
+            <g transform="translate(234 64)"><rect x="-11" y="-11" width="22" height="22" rx="6" fill="#E8A93A"/><text y="5" font-size="13" fill="#fff">6</text></g>
+          </g>
+
+          <!-- Tel Aviv -->
+          <circle cx="98" cy="152" r="7" fill="#fff" stroke="#3A2118" stroke-width="3"/>
+          <text x="110" y="149" font-family="Nunito Sans,sans-serif" font-weight="800" font-size="15" fill="#3A2118">Tel Aviv</text>
+          <!-- Jerusalem -->
+          <circle cx="512" cy="224" r="7" fill="#fff" stroke="#3A2118" stroke-width="3"/>
+          <text x="500" y="250" text-anchor="end" font-family="Nunito Sans,sans-serif" font-weight="800" font-size="15" fill="#3A2118">Jerusalem</text>
+          <!-- Modi'in -->
+          <circle cx="356" cy="196" r="4.5" fill="#9a8b76"/>
+          <text x="366" y="200" font-family="Nunito Sans,sans-serif" font-weight="700" font-size="11.5" fill="#7a6a58">Modi'in</text>
+
+          <!-- Hashmonaim label + animated pin -->
+          <text x="318" y="92" text-anchor="middle" font-family="Fraunces,serif" font-weight="800" font-size="21" fill="#8F241C">Hashmonaim</text>
+          <g transform="translate(318 142)">
+            <ellipse cx="0" cy="2" rx="11" ry="3.5" fill="rgba(58,33,24,.18)"/>
+            <g class="pin">
+              <path d="M0 0 C-15 -20 -13 -36 0 -36 C13 -36 15 -20 0 0 Z" fill="#B93A2F" stroke="#8F241C" stroke-width="2"/>
+              <circle cx="0" cy="-24" r="9" fill="#FFF4DC"/>
+              <g transform="translate(0 -24)" stroke="#6F7F45" stroke-width="1.6" fill="none">
+                <path d="M0 -6 L5 3 L-5 3 Z"/><path d="M0 6 L5 -3 L-5 -3 Z"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(566 32)" text-anchor="middle">
+            <path d="M0 -15 L5 5 L0 0 L-5 5 Z" fill="#8F241C"/>
+            <text y="20" font-family="Nunito Sans,sans-serif" font-size="11" font-weight="800" fill="#8F241C">N</text>
+          </g>
+        </svg>
+        <span class="map-hint">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg>
+          Open in Google Maps
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <div class="map-copy reveal reveal-d1">
+        <span class="kicker">Find Us</span>
+        <h2 class="sec">Come Cook With Us in Hashmonaim</h2>
+        <p class="addr"><svg width="22" height="22" viewBox="0 0 24 24" fill="#B93A2F"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>Hashmonaim, Israel</p>
+        <p style="color:var(--muted);">The workshop takes place in Hashmonaim. The exact address is shared after you sign up in the WhatsApp group, so you'll always have the latest details and class dates.</p>
+        <p style="margin-top:18px;">
+          <a class="btn" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">Join WhatsApp for Dates &amp; Address</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Good to Know</span>
+      <h2 class="sec">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Do I need any cooking experience?</summary><div class="ans">Not at all. Every class is beginner-friendly and fully guided, step by step, at your own station. All levels are welcome.</div></details>
+      <details><summary>Is everything really kosher?</summary><div class="ans">Yes — every dish is strictly kosher and clearly labelled Meat or Pareve, never mixed. We swap non-kosher Korean staples cleanly: soy sauce for fish sauce, kosher-certified gochujang and gochugaru, and no anchovy stock.</div></details>
+      <details><summary>Is there any pork or shellfish?</summary><div class="ans">Never. There is no pork and no shellfish in any dish, sauce or stock.</div></details>
+      <details><summary>Are the dishes meat or pareve?</summary><div class="ans">Each dish is clearly marked. Most mains also have a vegetarian / pareve option (for example, mushroom-tofu bulgogi or a tofu version of the gochujang "chicken"). Tell us about allergies in advance and we'll guide your choices.</div></details>
+      <details><summary>Where is the class held?</summary><div class="ans">In Hashmonaim, Israel. The exact street address is shared after you sign up via the WhatsApp group.</div></details>
+      <details><summary>How do I book?</summary><div class="ans">Just join the WhatsApp group — that's the only place we post class dates and open spots. There are no sign-up forms.</div></details>
+      <details><summary>How long is the workshop, and what does it cost?</summary><div class="ans">It runs about 3 hours and costs 350 NIS per person. You can pay with Bit, Paybox or cash.</div></details>
+      <details><summary>Can I come alone?</summary><div class="ans">Absolutely. It's great solo — a relaxed way to learn something new and meet people — and just as lovely as a date night or with a group of friends.</div></details>
+      <details><summary>Is it good for a date night or a group?</summary><div class="ans">Yes to both. The hands-on, cook-and-share format is perfect for couples and for groups of friends. Bring whoever you like.</div></details>
+      <details><summary>What about drinks and spice level?</summary><div class="ans">Soft drinks, beer and saké are available to purchase separately at dinner. Spice is adjustable — the cucumber salad, dak-galbi, braised tofu and your kimchi can be as mild or fiery as you like, and bibimbap's gochujang goes on to taste. Everything else is gentle.</div></details>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Downloads ===== -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">Printables</span>
+      <h2 class="sec">Resources &amp; Downloads</h2>
+      <p>Everything for the workshop — and to share it — in one place. All free to download.</p>
+    </div>
+    <div class="downloads">
+      <a class="dl-card reveal" href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">
+        <span class="dl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2" stroke-linejoin="round"><path d="M12 6c-1.6-1.2-4-2-6.2-2V18c2.2 0 4.6.8 6.2 2 1.6-1.2 4-2 6.2-2V4c-2.2 0-4.6.8-6.2 2z"/><path d="M12 6v14"/></svg></span>
+        <h3>Recipe Book</h3>
+        <p>All 13 dishes with step-by-step recipes, kosher notes and the story behind each one.</p>
+        <span class="dl-meta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF <span class="sz">· 66 MB</span></span>
+      </a>
+
+      <a class="dl-card reveal reveal-d1" href="what-to-bring.pdf" download="Batya's Kosher Korean Kitchen - What to Bring.pdf">
+        <span class="dl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 12.5l2 2 4-4"/></svg></span>
+        <h3>What to Bring</h3>
+        <p>A printable checklist so you arrive ready to cook — apron, containers and a hungry appetite.</p>
+        <span class="dl-meta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF <span class="sz">· 2 MB</span></span>
+      </a>
+
+      <a class="dl-card reveal reveal-d2" href="what-to-expect.pdf" download="Batya's Kosher Korean Kitchen - What to Expect.pdf">
+        <span class="dl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+        <h3>What to Expect</h3>
+        <p>How the class runs, the timing and rhythm of the evening, and what the day looks like.</p>
+        <span class="dl-meta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF <span class="sz">· 2 MB</span></span>
+      </a>
+
+      <a class="dl-card reveal" href="flyer.pdf" download="Batya's Kosher Korean Kitchen - Flyer.pdf">
+        <span class="dl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l6 4.5V5.5L7 10H3z"/><path d="M17.5 9a4.5 4.5 0 0 1 0 6"/></svg></span>
+        <h3>Class Flyer</h3>
+        <p>A printable one-pager to share with friends and help spread the word about the workshop.</p>
+        <span class="dl-meta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF <span class="sz">· 9 MB</span></span>
+      </a>
+
+      <a class="dl-card reveal reveal-d1" href="teacher-guide.pdf" download="Batya's Kosher Korean Kitchen - Teacher's Guide.pdf">
+        <span class="dl-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6F7F45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14a4 4 0 0 1-1.2-7.8 3.6 3.6 0 0 1 6.2-2 3.6 3.6 0 0 1 6.2 2A4 4 0 0 1 17 14z"/><path d="M7 14h10v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/></svg></span>
+        <h3>Teacher's Guide</h3>
+        <p>The full run-of-show for the host — timing, prep order and tips for running the class.</p>
+        <span class="dl-meta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12M7 11l5 5 5-5M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg>Download PDF <span class="sz">· 2 MB</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== Join ===== -->
+<section id="join">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">No Forms — Just WhatsApp</span>
+      <h2 class="sec">Get the Next Class Date on WhatsApp</h2>
+    </div>
+    <div class="join reveal">
+      <p style="font-size:1.08rem;margin-top:0;">Join our WhatsApp group to hear when the next class is happening and to see what's on the menu. That's the only place we post dates and spots.</p>
+      <div class="joinrow">
+        <img class="qr" src="img/whatsapp_qr.png" alt="Scan to join our WhatsApp group" width="188" height="188">
+        <div style="text-align:left;max-width:320px;">
+          <p style="margin:.2em 0 1em;">Scan the QR code, or tap the button below to join from your phone.</p>
+          <a class="btn green" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">
+            <svg class="wa" viewBox="0 0 24 24" fill="#fff"><path d="M.06 24l1.68-6.13A11.86 11.86 0 0 1 .16 11.9C.16 5.34 5.5.01 12.05.01a11.82 11.82 0 0 1 8.41 3.49 11.8 11.8 0 0 1 3.48 8.42c0 6.55-5.34 11.89-11.89 11.89a11.9 11.9 0 0 1-5.69-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.39 1.59 5.44 0 9.87-4.43 9.88-9.88a9.85 9.85 0 0 0-16.82-6.99 9.82 9.82 0 0 0-2.9 6.98c0 2.22.65 3.88 1.74 5.62l-.99 3.62 3.7-.97z"/></svg>
+            Join the WhatsApp group
+          </a>
+        </div>
+      </div>
+      <p style="margin-top:18px;color:var(--muted);">Classes are 350 NIS per person · pay with Bit, Paybox or cash · in Hashmonaim, Israel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-wordmark">Batya's Kitchen<small>Kosher Korean</small></span>
+        <p>A warm, hands-on kosher Korean cooking workshop where you learn, cook, and enjoy beloved Korean dishes from scratch — then take home your own jar of kimchi.</p>
+        <div class="foot-kosher">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8EA65B" stroke-width="2"><path d="M12 3l2.4 5.9L20.7 9l-4.8 4 1.8 6.4L12 16l-5.7 3.4L8.1 13 3.3 9l6.3-.1z" stroke-linejoin="round"/></svg>
+          Strictly kosher · Meat/Pareve labeled · No pork · No shellfish
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">The Workshop</a></li>
+          <li><a href="#menu">The Menu</a></li>
+          <li><a href="recipes.html">All Recipes</a></li>
+          <li><a href="#kosher">Kosher</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#downloads">Downloads</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The Details</h4>
+        <ul>
+          <li>📍 Hashmonaim, Israel</li>
+          <li>⏱ 3-hour hands-on class</li>
+          <li>₪ 350 NIS per person</li>
+          <li>💳 Bit · Paybox · Cash</li>
+          <li><a href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">⬇ Recipe book (PDF)</a></li>
+          <li><a href="what-to-bring.pdf" download="Batya's Kosher Korean Kitchen - What to Bring.pdf">⬇ What to bring (PDF)</a></li>
+          <li><a href="what-to-expect.pdf" download="Batya's Kosher Korean Kitchen - What to Expect.pdf">⬇ What to expect (PDF)</a></li>
+          <li><a href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">💬 Join the WhatsApp group</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <b>Batya's Kosher Korean Kitchen</b> · A kosher Korean cooking workshop · Hashmonaim, Israel
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Sticky mobile CTA ===== -->
+<div class="mobile-cta">
+  <div class="mc-txt">Next class on WhatsApp<small>Dates · spots · menu</small></div>
+  <a class="btn sm" href="https://chat.whatsapp.com/IZca9cboX6l7pF752qowAk?s=cl&amp;p=i&amp;ilr=4" target="_blank" rel="noopener">
+    <svg class="wa" viewBox="0 0 24 24" fill="#fff"><path d="M.06 24l1.68-6.13A11.86 11.86 0 0 1 .16 11.9C.16 5.34 5.5.01 12.05.01a11.82 11.82 0 0 1 8.41 3.49 11.8 11.8 0 0 1 3.48 8.42c0 6.55-5.34 11.89-11.89 11.89a11.9 11.9 0 0 1-5.69-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.39 1.59 5.44 0 9.87-4.43 9.88-9.88a9.85 9.85 0 0 0-16.82-6.99 9.82 9.82 0 0 0-2.9 6.98c0 2.22.65 3.88 1.74 5.62l-.99 3.62 3.7-.97z"/></svg>
+    Join
+  </a>
+</div>
+
+<script>
+(function(){
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll('.reveal, .step, #kstamp, #mapCard');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.14});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* Sticky header background on scroll */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Mobile menu toggle */
+  var burger = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    burger.setAttribute('aria-expanded', String(!open));
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.style.display='none'; burger.setAttribute('aria-expanded','false'); });
+  });
+
+  /* Menu category filter */
+  var tabs = document.getElementById('menuTabs');
+  var cards = document.querySelectorAll('#menuGrid .card');
+  tabs.addEventListener('click', function(e){
+    var btn = e.target.closest('.menu-tab'); if(!btn) return;
+    tabs.querySelectorAll('.menu-tab').forEach(function(t){ t.classList.remove('active'); });
+    btn.classList.add('active');
+    var f = btn.getAttribute('data-filter');
+    cards.forEach(function(c){
+      c.style.display = (f === 'all' || c.getAttribute('data-cat') === f) ? '' : 'none';
+    });
+  });
+
+  /* Sesame seed drift in hero */
+  var hero = document.querySelector('.hero');
+  if(hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    for(var i=0;i<10;i++){
+      var s = document.createElement('span');
+      s.className = 'sesame';
+      s.style.left = (Math.random()*100) + '%';
+      s.style.top = (Math.random()*40) + '%';
+      s.style.animationDuration = (5 + Math.random()*6) + 's';
+      s.style.animationDelay = (Math.random()*6) + 's';
+      hero.appendChild(s);
+    }
+  }
+})();
+</script>
+</body></html>

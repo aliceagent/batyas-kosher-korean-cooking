@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipes — Batya's Kosher Korean Kitchen</title>
+<meta name="description" content="Full kosher Korean recipes from Batya's Kosher Korean Kitchen workshop in Hashmonaim — all 13 dishes, each clearly labelled Meat or Pareve.">
+<meta name="theme-color" content="#FFF4DC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF4DC; --cream-2:#FFF9EC; --kimchi-red:#B93A2F; --gochujang:#8F241C;
+  --sage:#6F7F45; --scallion:#8EA65B; --gold:#E8A93A; --soy:#3A2118; --sesame:#F4D8A0;
+  --ink:#3A2A20; --muted:#7a6a58; --card:#FFFDF8;
+  --line:rgba(58,33,24,.12);
+  --shadow-soft:0 18px 45px rgba(58,33,24,.10);
+  --shadow-card:0 10px 24px rgba(58,33,24,.08);
+  --radius-xl:28px; --radius-lg:20px; --radius-pill:999px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Nunito Sans',system-ui,Segoe UI,Helvetica,Arial,sans-serif;
+  color:var(--ink); line-height:1.62; -webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(232,169,58,.10), transparent 24%),
+    radial-gradient(circle at 88% 6%, rgba(111,127,69,.10), transparent 22%),
+    var(--cream);
+}
+h1,h2,h3,.brand-wordmark{font-family:'Fraunces',Georgia,serif;}
+a{color:var(--kimchi-red);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+img{max-width:100%;}
+
+.btn{display:inline-flex;align-items:center;gap:.5em;background:var(--kimchi-red);color:#fff;text-decoration:none;font-weight:800;padding:13px 24px;border-radius:var(--radius-pill);box-shadow:0 10px 24px rgba(185,58,47,.28);border:none;cursor:pointer;font-size:1rem;font-family:inherit;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;}
+.btn:hover{background:var(--gochujang);transform:translateY(-2px);}
+.btn.green{background:var(--sage);box-shadow:0 10px 24px rgba(111,127,69,.28);}
+.btn.green:hover{background:#586537;}
+.btn.ghost{background:#fff;color:var(--kimchi-red);border:2px solid var(--kimchi-red);box-shadow:none;}
+.btn.ghost:hover{background:#fff5f2;}
+.btn.sm{padding:9px 16px;font-size:.9rem;}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(255,244,220,.85);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s;}
+.site-header.scrolled{border-bottom-color:rgba(143,36,28,.14);box-shadow:0 6px 20px rgba(58,33,24,.06);}
+.hrow{display:flex;align-items:center;gap:14px;padding:10px 0;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--gochujang);}
+.brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:0 4px 10px rgba(58,33,24,.12);}
+.brand-wordmark{font-weight:800;font-size:1.18rem;color:var(--kimchi-red);line-height:1;}
+.brand-wordmark small{display:block;font-family:'Nunito Sans',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-top:3px;}
+.hrow .spacer{margin-left:auto;}
+.hrow .back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--soy);font-weight:800;font-size:.95rem;}
+.hrow .back:hover{color:var(--kimchi-red);}
+
+/* Page intro */
+.page-intro{text-align:center;padding:34px 0 6px;}
+.kicker{display:block;color:var(--gold);font-weight:800;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.page-intro h1{color:var(--kimchi-red);font-size:clamp(2rem,4.4vw,2.9rem);margin:.1em 0 .15em;}
+.page-intro p{color:var(--muted);font-size:1.06rem;margin:.3em auto 0;max-width:60ch;}
+
+/* Sticky toolbar: filter + TOC */
+.toolbar{position:sticky;top:62px;z-index:50;background:rgba(255,249,236,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:18px;}
+.toolbar-inner{display:flex;align-items:center;gap:14px;padding:11px 0;flex-wrap:wrap;}
+.filter{display:flex;gap:8px;flex:0 0 auto;}
+.fbtn{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-pill);padding:8px 15px;font-weight:800;font-size:.88rem;color:var(--soy);cursor:pointer;font-family:inherit;transition:.16s;display:inline-flex;align-items:center;gap:6px;}
+.fbtn .b-dot{width:8px;height:8px;border-radius:50%;}
+.fbtn[data-f="meat"] .b-dot{background:var(--kimchi-red);}
+.fbtn[data-f="pareve"] .b-dot{background:var(--sage);}
+.fbtn:hover{border-color:var(--kimchi-red);}
+.fbtn.active{background:var(--soy);border-color:var(--soy);color:#fff;}
+.fbtn.active .b-dot{background:#fff;}
+.toc{display:flex;gap:7px;overflow-x:auto;flex:1 1 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px;}
+.toc::-webkit-scrollbar{display:none;}
+.toc a{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius-pill);padding:6px 13px;text-decoration:none;color:var(--sage);font-weight:700;font-size:.84rem;white-space:nowrap;}
+.toc a:hover{background:var(--kimchi-red);color:#fff;border-color:var(--kimchi-red);}
+.dl-row{text-align:center;margin:18px 0 4px;}
+
+/* Recipe cards */
+.recipe{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-xl);padding:26px;margin:26px 0;scroll-margin-top:130px;box-shadow:var(--shadow-card);transition:opacity .4s,transform .4s;}
+.recipe.reveal{opacity:0;transform:translateY(22px);}
+.recipe.reveal.is-visible{opacity:1;transform:translateY(0);}
+.rhead{display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+.rhead h2{display:inline;margin:0;color:var(--kimchi-red);font-size:1.5rem;width:100%;margin-top:6px;}
+.rhead .kr{color:var(--gold);font-size:.92rem;font-weight:700;}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:800;letter-spacing:.04em;color:#fff;padding:4px 11px;border-radius:var(--radius-pill);}
+.badge.meat{background:var(--kimchi-red);} .badge.pareve{background:var(--sage);}
+.badge .b-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9);}
+.course{display:inline-block;font-size:.7rem;font-weight:800;color:var(--gold);background:#fbf1da;border-radius:var(--radius-pill);padding:4px 11px;}
+.rgrid{display:grid;grid-template-columns:300px 1fr;gap:26px;margin-top:16px;align-items:start;}
+.poster{width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);position:sticky;top:130px;}
+.rtext h3{color:var(--gochujang);margin:.9em 0 .25em;font-size:1.08rem;}
+.rtext h3:first-child{margin-top:0;}
+.rtext ul,.rtext ol{margin:.2em 0;padding-left:1.2em;}
+.rtext li{margin:.25em 0;}
+.kn{background:#f4f7ec;border-left:4px solid var(--sage);padding:10px 14px;border-radius:10px;font-size:.94rem;margin:.4em 0;}
+.veg{background:#fdf2ec;border-left:4px solid var(--kimchi-red);padding:10px 14px;border-radius:10px;font-size:.94rem;margin:.4em 0;}
+.story{font-style:italic;color:var(--muted);}
+.back{margin:14px 0 0;}
+.back a{font-weight:800;text-decoration:none;}
+.back a:hover{text-decoration:underline;}
+@media(max-width:660px){.rgrid{grid-template-columns:1fr;}.poster{position:static;max-width:340px;margin:0 auto;display:block;}}
+
+/* Footer */
+.site-footer{background:radial-gradient(circle at 90% 0%, rgba(185,58,47,.18), transparent 40%),var(--soy);color:#f3e7d6;margin-top:40px;padding:34px 0 110px;text-align:center;}
+.site-footer a{color:#ecd9c2;font-weight:700;text-decoration:none;}
+.site-footer a:hover{color:#fff;}
+.site-footer .fk{color:#e9d7bf;font-size:.9rem;margin-top:8px;}
+
+/* Sticky mobile back */
+.mobile-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;align-items:center;gap:12px;background:rgba(255,253,248,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:var(--radius-pill);padding:9px 9px 9px 18px;box-shadow:0 14px 34px rgba(58,33,24,.22);}
+.mobile-cta .mc-txt{font-weight:800;font-size:.9rem;color:var(--soy);}
+.mobile-cta .btn{margin-left:auto;}
+@media(max-width:680px){
+  .mobile-cta{display:flex;}
+  body{padding-bottom:84px;}
+  .brand img{width:36px;height:36px;}
+  .brand-wordmark{font-size:1.02rem;white-space:nowrap;}
+  .brand-wordmark small{font-size:.56rem;}
+  .hrow .back .bk-full{display:none;}
+  .toolbar{top:57px;}
+  .recipe{scroll-margin-top:122px;}
+  .poster{top:122px;}
+}
+
+@media print{
+  .site-header,.toolbar,.mobile-cta,.site-footer,.dl-row,.back,.page-intro p,.kicker{display:none !important;}
+  body{background:#fff;color:#000;}
+  .recipe{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid;margin:10px 0;opacity:1 !important;transform:none !important;}
+  .poster{position:static;max-width:240px;}
+  a{color:#000;text-decoration:none;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  .recipe.reveal{opacity:1;transform:none;}
+}
+</style></head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <div class="hrow">
+      <a class="brand" href="index.html">
+        <img src="img/logo.jpg" alt="Batya's Kosher Korean Kitchen logo">
+        <span class="brand-wordmark">Batya's Kitchen<small>Kosher Korean</small></span>
+      </a>
+      <span class="spacer"></span>
+      <a class="back" href="index.html#menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back<span class="bk-full">&nbsp;to Workshop</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-intro">
+    <span class="kicker">The Full Recipes</span>
+    <h1>Recipes</h1>
+    <p>Every dish from the workshop — each one strictly kosher and clearly labelled Meat or Pareve. Filter by label, jump to a dish, or print the page.</p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="toolbar-inner">
+      <div class="filter" id="filter">
+        <button class="fbtn active" data-f="all">All 13</button>
+        <button class="fbtn" data-f="meat"><span class="b-dot"></span>Meat</button>
+        <button class="fbtn" data-f="pareve"><span class="b-dot"></span>Pareve</button>
+        <button class="fbtn" id="printBtn" title="Print these recipes">🖨 Print</button>
+      </div>
+      <nav class="toc" id="toc">
+        <a href="#pajeon">Scallion Pancakes</a>
+        <a href="#mandu">Beef Dumplings</a>
+        <a href="#gyeranmari">Rolled Omelette</a>
+        <a href="#oimuchim">Spicy Cucumber Salad</a>
+        <a href="#sigeumchi">Sesame Spinach</a>
+        <a href="#bulgogi">Marinated Beef</a>
+        <a href="#dakgalbi">Gochujang Chicken</a>
+        <a href="#bibimbap">Mixed Rice Bowl</a>
+        <a href="#japchae">Glass Noodle Stir-Fry</a>
+        <a href="#dubujorim">Braised Tofu</a>
+        <a href="#hotteok">Sweet Filled Pancakes</a>
+        <a href="#honeytteok">Sweet Rice Cakes</a>
+        <a href="#kimchi">Napa Cabbage Kimchi</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="dl-row">
+    <a class="btn ghost sm" href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">⬇ Download the full recipe book (PDF)</a>
+  </div>
+
+  <article id="pajeon" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Appetizer</span>
+      <h2>Scallion Pancakes <span class="kr">파전 · pah-jun</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/pajeon_poster.jpg" alt="Scallion Pancakes recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>1 cup (130 g) all-purpose flour</li><li>1 cup (240 ml) very cold water (cold = crispier)</li><li>1 large egg (optional, for richness — stays pareve)</li><li>1/4 tsp salt</li><li>2 big bunches scallions / green onions (בצל ירוק), trimmed to pan width</li><li>1/2 carrot, thin matchsticks (optional, for color)</li><li>Neutral oil for shallow-frying (be generous)</li><li>Dipping sauce: 2 Tbsp soy sauce, 1 Tbsp rice/cider vinegar, 1/2 tsp sesame oil, 1/2 tsp sugar, 1 tsp sesame seeds</li></ul>
+        <p class="kn"><b>Kosher note:</b> Naturally pareve. Just confirm a kosher-certified soy sauce. The egg is optional and keeps the dish pareve.</p>
+        <h3>How to make it</h3><ol><li>Make the sauce first: stir all dipping-sauce ingredients together and set aside.</li><li>Whisk flour, cold water, salt and egg (if using) into a thin, pourable batter — a few lumps are fine.</li><li>Lay the scallions flat and cut to the width of your pan; keep them in long ribbons, not chopped small.</li><li>Heat a generous layer of oil in a non-stick pan over medium-high until it shimmers.</li><li>Lay a single flat layer of scallions (plus carrot) in the pan, pour batter over to just cover, and press flat.</li><li>Fry 3–4 minutes until the edges are golden and lacy and the bottom is deep golden.</li><li>Flip (slide onto a plate, invert the pan over it, flip together), add a little oil, and fry 2–3 minutes more.</li><li>Cut into wedges with scissors or a knife and serve hot with the dipping sauce.</li></ol>
+        <h3>A little story</h3><p class="story">Pajeon is Korea&#x27;s favorite rainy-day food. There&#x27;s a much-loved belief that the sizzle of batter in hot oil sounds just like rain on the roof — so when the skies open, Koreans crave jeon. Pa means scallion and jeon means anything battered and pan-fried, a whole family of dishes that appear at celebrations and holidays. It&#x27;s social food: you tear it apart with chopsticks and share straight from the plate — a perfect first dish to cook with someone you love.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="mandu" class="recipe reveal" data-label="meat">
+    <div class="rhead"><span class="badge meat"><span class="b-dot"></span>MEAT</span> <span class="course">Appetizer</span>
+      <h2>Beef Dumplings <span class="kr">만두 · mahn-doo</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/mandu_poster.jpg" alt="Beef Dumplings recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>1 pack round dumpling wrappers (store-bought, pareve — flour &amp; water) OR from-scratch (below)</li><li>250 g kosher ground beef</li><li>1.5 cups (about 150 g) finely chopped green cabbage (כרוב)</li><li>2 scallions, finely chopped</li><li>2 cloves garlic, minced; 1 tsp grated ginger</li><li>1 Tbsp soy sauce, 1 tsp sesame oil, 1/4 tsp pepper, 1 tsp sugar</li><li>Neutral oil for pan-frying; small bowl of water to seal</li><li>From-scratch wrappers: 2 cups flour + 1/2 tsp salt + ~3/4 cup just-boiled water; knead, rest 20 min, roll thin, cut 8–9 cm circles</li></ul>
+        <p class="kn"><b>Kosher note:</b> MEAT dish — keep on a meat board with meat tools, away from any dairy or pareve dishes. Use kosher ground beef. Check store-bought wrappers are simple flour/water/salt (no dairy).</p>
+        <h3>How to make it</h3><ol><li>Toss the chopped cabbage with a pinch of salt, wait 5 minutes, then squeeze out the water with your hands.</li><li>Mix beef, squeezed cabbage, scallions, garlic, ginger, soy sauce, sesame oil, pepper and sugar until even.</li><li>Hold a wrapper in your palm, add about 1 tsp filling to the center (don&#x27;t overfill), and wet the edge with a finger.</li><li>Fold into a half-moon and pinch the edges firmly shut; pleat or press with a fork — just seal it fully.</li><li>Heat a thin layer of oil in a non-stick pan over medium heat; place dumplings flat-side down, not touching.</li><li>Fry 2 minutes until the bottoms are golden.</li><li>Add 3–4 Tbsp water and immediately cover; steam 4–5 minutes until cooked through.</li><li>Uncover, let the bottoms re-crisp 1 minute, and serve hot with soy-vinegar dip.</li></ol>
+        <h3>A little story</h3><p class="story">Mandu traveled into Korea centuries ago along Silk Road trade routes and made themselves completely at home. Today they&#x27;re inseparable from Seollal, Korean Lunar New Year, when families gather to fold them together — grandparents, parents and kids all at one floury table. There&#x27;s a sweet saying that the prettier your dumplings, the prettier your future children will be, so everyone tries their best pleats. Folding mandu together is a tiny version of that family ritual — slow down, work side by side, and you&#x27;ll get better with every one.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="gyeranmari" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Appetizer</span>
+      <h2>Rolled Omelette <span class="kr">계란말이 · gyeh-ran-mah-ri</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/gyeranmari_poster.jpg" alt="Rolled Omelette recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>4 large eggs</li><li>1 scallion, finely chopped</li><li>2 Tbsp finely diced carrot</li><li>2 Tbsp finely diced red bell pepper</li><li>1/4 tsp salt</li><li>1 tsp soy sauce (optional)</li><li>Neutral oil for the pan</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE — eggs are pareve and no milk is added (Korean gyeran-mari is traditionally dairy-free). Use a clean pareve pan so it can be served alongside a meat course.</p>
+        <h3>How to make it</h3><ol><li>Beat the eggs with the salt and soy sauce until completely smooth and uniform; strain once for extra silkiness (optional).</li><li>Stir in the chopped scallion, carrot and bell pepper.</li><li>Lightly oil a non-stick pan over LOW–medium heat — low heat is the secret to no browning.</li><li>Pour in a thin layer of egg to cover the pan; when mostly set but still a little wet on top, it&#x27;s ready to roll.</li><li>Gently roll the egg from one side to the other into a log and push it to one end of the pan.</li><li>Oil the empty space, pour another thin layer, lift the roll so new egg flows underneath, let it set, and roll again.</li><li>Repeat until all the egg is used, then roll the finished log to seal and rest 1 minute off heat.</li><li>Slice into 2 cm pieces to show off the spiral.</li></ol>
+        <h3>A little story</h3><p class="story">Gyeran-mari is the heart of Korean comfort food: it shows up in school lunchboxes (dosirak), on breakfast tables, and as a gentle side dish (banchan) at almost any meal. Its golden spiral, flecked with confetti vegetables, is one of the most photogenic things you can make in a frying pan — and one of the most forgiving. It&#x27;s often someone&#x27;s very first cooked dish, and rolling it is oddly meditative; don&#x27;t be surprised if you fight over who gets the next layer.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="oimuchim" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Side Dish</span>
+      <h2>Spicy Cucumber Salad <span class="kr">오이무침 · oh-ee-moo-chim</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/oimuchim_poster.jpg" alt="Spicy Cucumber Salad recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>2 medium cucumbers (Israeli/Persian-type are great)</li><li>1/2 tsp salt</li><li>1 Tbsp gochugaru (Korean chili flakes) OR 2 tsp sweet paprika + 1/4 tsp cayenne</li><li>1 clove garlic, minced; 1 scallion, finely sliced</li><li>1 tsp soy sauce, 1 tsp rice/cider vinegar, 1/2 tsp sugar</li><li>1 tsp sesame oil, 1 tsp toasted sesame seeds</li></ul>
+        <p class="kn"><b>Kosher note:</b> Naturally pareve. Use kosher-certified gochugaru and soy sauce. If gochugaru is hard to find, the paprika + cayenne blend gives color and gentle heat.</p>
+        <h3>How to make it</h3><ol><li>Lay each cucumber down and gently bash it with the flat of a knife or a rolling pin until it cracks, then cut into bite-size chunks.</li><li>Toss with 1/2 tsp salt and let sit 10 minutes, then pour off the water that collects (keeps it crunchy).</li><li>Stir together gochugaru, garlic, scallion, soy sauce, vinegar, sugar and sesame oil.</li><li>Add the drained cucumbers and toss until every piece is coated red and glossy.</li><li>Sprinkle with sesame seeds and serve fresh and cold.</li></ol>
+        <h3>A little story</h3><p class="story">Oi-muchim belongs to the world of banchan — the little shared side dishes that crowd every Korean table. It&#x27;s a quick-kimchi cousin: bright, spicy, garlicky and ready in minutes instead of fermenting for days. In summer, when cucumbers are cheap and the weather is hot, this is the dish that wakes up the whole meal. Muchim simply means &#x27;mixed/seasoned by hand,&#x27; and that&#x27;s exactly the spirit — no cooking, just tossing good things together.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="sigeumchi" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Side Dish</span>
+      <h2>Sesame Spinach <span class="kr">시금치나물 · shi-geum-chi nah-mul</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/sigeumchi_poster.jpg" alt="Sesame Spinach recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>250 g fresh spinach (a big bunch)</li><li>1 clove garlic, minced; 1 scallion, finely chopped</li><li>1 Tbsp toasted sesame oil</li><li>1 tsp soy sauce; 1/4 tsp salt (to taste)</li><li>1 Tbsp toasted sesame seeds</li><li>A bowl of ice water</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE. Traditional namul uses soy sauce and sesame — no fish sauce here. Important: wash and check the spinach leaves carefully for insects, as required, before blanching.</p>
+        <h3>How to make it</h3><ol><li>Bring a pot of salted water to a boil, add the spinach and cook just 30–45 seconds until wilted and bright green.</li><li>Scoop straight into the ice water to stop the cooking and keep it green, then drain.</li><li>Squeeze the spinach firmly with your hands to remove as much water as possible — this is the key step.</li><li>Pull the squeezed ball apart with your fingers so it isn&#x27;t one clump.</li><li>Add garlic, scallion, sesame oil, soy sauce and salt, and gently massage everything together.</li><li>Sprinkle with sesame seeds, taste, adjust, and serve at room temperature.</li></ol>
+        <h3>A little story</h3><p class="story">Sesame spinach is one of the classic namul — seasoned vegetable sides that form the colorful backbone of Korean meals and a centerpiece of bibimbap. Namul reflect a deep cooking philosophy: treat each vegetable simply and let it taste like itself, dressed with just garlic, sesame and soy. Quick, green and nutritious, it&#x27;s the kind of thing Korean grandmothers make without measuring anything at all.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="bulgogi" class="recipe reveal" data-label="meat">
+    <div class="rhead"><span class="badge meat"><span class="b-dot"></span>MEAT</span> <span class="course">Main Dish</span>
+      <h2>Marinated Beef <span class="kr">불고기 · bool-go-gi</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/bulgogi_poster.jpg" alt="Marinated Beef recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>500 g thin-sliced kosher beef (sirloin or ribeye; freeze 30 min to slice thin)</li><li>1/2 onion, thinly sliced; 2 scallions, cut into 4 cm pieces</li><li>Marinade: 4 Tbsp soy sauce, 2 Tbsp sugar (or 1 Tbsp sugar + 1 Tbsp honey)</li><li>1 Tbsp sesame oil, 3 cloves garlic minced, 1 tsp grated ginger</li><li>2 Tbsp grated pear or apple (natural tenderizer)</li><li>1/4 tsp black pepper, 1 Tbsp toasted sesame seeds</li><li>1 Tbsp neutral oil for searing</li></ul>
+        <p class="kn"><b>Kosher note:</b> Beef version is MEAT; the mushroom-tofu version is PAREVE. Never cook them in the same pan or with the same tools, and keep both away from dairy. The &#x27;no fish/oyster sauce&#x27; rule is already handled — this marinade is pure soy-sweet-garlic.</p>
+        <p class="veg"><b>Vegetarian / pareve option:</b> Built-in vegetarian alternative — Mushroom &amp; Tofu Bulgogi (PAREVE): swap the beef for 2 large king oyster mushrooms (sliced into planks) plus 1 block firm tofu (pressed, cut into strips). Use the exact same marinade. With no meat it is PAREVE — cook in a separate pareve pan with pareve tools.</p>
+        <h3>How to make it</h3><ol><li>Stir together all marinade ingredients until the sugar dissolves.</li><li>Add the thin beef and sliced onion, toss to coat, and let sit just 15–20 minutes (thin slices soak up flavor fast).</li><li>Get a wide pan very hot with 1 Tbsp oil — a hot pan caramelizes instead of steaming.</li><li>Sear the beef in a single layer without crowding, 1–2 minutes per side, until the edges caramelize.</li><li>Toss in the scallions in the last minute to soften.</li><li>Serve hot with extra sesame seeds, rice, and lettuce leaves for wrapping (ssam).</li></ol>
+        <h3>A little story</h3><p class="story">Bulgogi — literally &#x27;fire meat&#x27; — is one of Korea&#x27;s most famous dishes and an ambassador for Korean food worldwide. Its roots reach back over a thousand years to maekjeok, skewered grilled meat from the Goguryeo era. Historically a special-occasion food, it was often grilled at the table over charcoal so everyone cooked together and ate as they went. That communal, cook-as-you-go spirit is exactly why it&#x27;s perfect for cooking side by side in a workshop like this.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="dakgalbi" class="recipe reveal" data-label="meat">
+    <div class="rhead"><span class="badge meat"><span class="b-dot"></span>MEAT</span> <span class="course">Main Dish</span>
+      <h2>Spicy Gochujang Chicken <span class="kr">닭갈비 · dak-gal-bi</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/dakgalbi_poster.jpg" alt="Spicy Gochujang Chicken recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>500 g boneless kosher chicken thighs, cut into strips</li><li>2 cups cabbage (כרוב) in chunks; 1 sweet potato, thinly sliced; 1/2 onion sliced; 2 scallions</li><li>Sauce: 2 Tbsp kosher gochujang (or from-scratch sauce below), 1 Tbsp soy sauce</li><li>1 Tbsp gochugaru (optional), 1 Tbsp sugar/honey, 1 Tbsp neutral oil</li><li>3 cloves garlic minced, 1 tsp grated ginger, 1 tsp sesame oil</li><li>From-scratch gochujang-style sauce: 2 Tbsp gochugaru (or 1 Tbsp paprika + 1/2 tsp cayenne) + 1 Tbsp white miso OR tomato paste + 1 Tbsp soy sauce + 1 Tbsp honey + 1 tsp vinegar</li></ul>
+        <p class="kn"><b>Kosher note:</b> Chicken version is MEAT; tofu version is PAREVE. Keep them fully separate (pans, tools, plates) and away from dairy. Use kosher-certified gochujang (or the from-scratch sauce) and kosher chicken. No fish/anchovy anywhere.</p>
+        <p class="veg"><b>Vegetarian / pareve option:</b> Vegetarian alternative (PAREVE): replace the chicken with 1 block firm tofu (cubed) plus extra vegetables (more cabbage, mushrooms, zucchini, sweet potato). Use the same sauce. With no meat it is PAREVE — separate pareve pan and tools.</p>
+        <h3>How to make it</h3><ol><li>Stir all sauce ingredients into a smooth red paste.</li><li>Toss the chicken strips in about half the sauce and let sit 10–15 minutes while you prep vegetables.</li><li>Heat oil in a large pan over medium-high; add the sweet potato slices first and cook 3–4 minutes.</li><li>Add the marinated chicken and stir-fry 4–5 minutes until mostly cooked and starting to brown.</li><li>Add cabbage, onion and the remaining sauce; stir-fry 4–5 minutes until the chicken is fully cooked (no pink) and the cabbage is just tender.</li><li>Toss in scallions, drizzle the sesame oil, stir 1 minute, and serve hot and bubbling.</li></ol>
+        <h3>A little story</h3><p class="story">Dak-galbi is the signature dish of Chuncheon, a city northeast of Seoul where whole restaurant districts are devoted to it. It&#x27;s quintessential group food: a giant pan of chicken, cabbage, sweet potato and fiery gochujang sauce bubbles in the middle of the table while friends and couples cook, chat and reach in together. Affordable, generous and a little theatrical, it&#x27;s famously a &#x27;date food&#x27; in Korea — exactly the energy we want today.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="bibimbap" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Main Dish</span>
+      <h2>Mixed Rice Bowl <span class="kr">비빔밥 · bee-bim-bahp</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/bibimbap_poster.jpg" alt="Mixed Rice Bowl recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>2 cups cooked short-grain rice</li><li>1 cup spinach, blanched and seasoned (see Sesame Spinach)</li><li>1 carrot, cut into matchsticks and lightly sauteed</li><li>1 cup mushrooms, sliced and sauteed</li><li>1 egg, fried (optional — keeps it pareve)</li><li>2 Tbsp kosher gochujang, 1 tsp sesame oil, toasted sesame seeds</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE (the egg is pareve and there is no meat or dairy). Use kosher-certified gochujang. This is the very dish smiling on our logo!</p>
+        <h3>How to make it</h3><ol><li>Cook the rice and prepare a few seasoned vegetables (namul) — the sesame spinach is perfect here.</li><li>Saute the carrot and mushrooms separately with a little oil and a pinch of salt; keep each vegetable distinct.</li><li>Pile warm rice into a bowl and arrange the vegetables on top in neat colorful sections.</li><li>Add a fried egg in the center and a spoon of gochujang thinned with a little sesame oil.</li><li>Sprinkle with sesame seeds, then mix everything together well right before eating.</li></ol>
+        <h3>A little story</h3><p class="story">Bibimbap — &#x27;mixed rice&#x27; — is Korea&#x27;s most beloved one-bowl meal and a celebration of balance: each colorful vegetable seasoned its own way, then brought together with rice, egg and gochujang. It began as a clever way to use up little side dishes and grew into a national icon, even famously eaten by astronauts. Mixing it is half the fun: every bite is a little different, and no two bowls are ever quite the same.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="japchae" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Main Dish</span>
+      <h2>Glass Noodle Stir-Fry <span class="kr">잡채 · jap-chae</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/japchae_poster.jpg" alt="Glass Noodle Stir-Fry recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>200 g sweet-potato glass noodles (dangmyeon)</li><li>1 cup spinach; 1 carrot, matchsticks; 1/2 onion, sliced; 1 cup mushrooms, sliced</li><li>Sauce: 3 Tbsp soy sauce, 1 Tbsp sugar, 1 Tbsp sesame oil, 1 clove garlic minced</li><li>Neutral oil for stir-frying; toasted sesame seeds to finish</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE — this vegetable version uses soy sauce (no fish or oyster sauce) and no dairy. Glass noodles are made from sweet-potato starch; confirm a kosher-certified package.</p>
+        <h3>How to make it</h3><ol><li>Boil the glass noodles 6–7 minutes until chewy and translucent, drain, rinse, and snip a few times with scissors.</li><li>Stir-fry the carrot, onion and mushrooms with a little oil until just tender; add the spinach at the end to wilt.</li><li>Mix the soy sauce, sugar, sesame oil and garlic into a quick sauce.</li><li>Add the noodles and sauce to the pan and toss everything together over medium heat until glossy and evenly coated.</li><li>Finish with sesame seeds and serve warm or at room temperature.</li></ol>
+        <h3>A little story</h3><p class="story">Japchae is Korea&#x27;s quintessential party dish — the shiny, springy, sweet-savory noodles that appear at birthdays, weddings and holidays. Surprisingly, the original 17th-century version had no noodles at all; the now-famous sweet-potato glass noodles were added later and made it a star. Tossing the slippery strands with colorful vegetables is wonderfully satisfying, and it tastes just as good warm from the pan or cool from the fridge the next day.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="dubujorim" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Side Dish</span>
+      <h2>Braised Tofu <span class="kr">두부조림 · doo-boo joh-rim</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/dubujorim_poster.jpg" alt="Braised Tofu recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>1 block firm tofu</li><li>3 Tbsp soy sauce</li><li>1 Tbsp gochugaru (kosher-certified) — optional, for warmth</li><li>2 cloves garlic, minced; 2 scallions, sliced</li><li>1 tsp sugar; 1 tsp sesame oil; 1/4 cup water</li><li>Neutral oil for pan-frying; toasted sesame seeds to finish</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE — tofu braised in a soy-garlic sauce (no fish or oyster sauce). Use kosher-certified soy sauce and gochugaru. A protein-rich, naturally pareve dish that pairs with anything.</p>
+        <h3>How to make it</h3><ol><li>Cut the tofu into thick slices and pat it very dry with paper towels — dry tofu browns and won&#x27;t splatter.</li><li>Pan-fry the tofu in a little oil over medium-high heat until golden on both sides.</li><li>Stir together the soy sauce, gochugaru, garlic, sugar, sesame oil and water to make the braising sauce.</li><li>Pour the sauce over the tofu in the pan and simmer 4–5 minutes, spooning sauce over the top, until it thickens and glazes the tofu.</li><li>Scatter with scallions and sesame seeds and serve warm — wonderful over rice.</li></ol>
+        <h3>A little story</h3><p class="story">Dubu jorim is a humble, homey banchan found on Korean tables everywhere — golden slabs of tofu braised in a savoury, garlicky, gently spicy soy sauce until the glaze clings to every piece. It&#x27;s the quiet hero of the meal: cheap, comforting and deeply satisfying, proving how much flavour simple tofu can soak up. Protein-rich and naturally pareve, it makes a lovely vegetarian centrepiece or a side that everyone fights over.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="hotteok" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Dessert</span>
+      <h2>Sweet Filled Pancakes <span class="kr">호떡 · ho-tteok</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/hotteok_poster.jpg" alt="Sweet Filled Pancakes recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>Dough: 2 cups (260 g) flour, 2 Tbsp sugar, 1/2 tsp salt, 1 tsp instant yeast</li><li>3/4 cup + 2 Tbsp (210 ml) warm water (not milk — keeps it pareve), 1 Tbsp neutral oil</li><li>Filling: 4 Tbsp brown sugar (or sugar + a little silan), 1 tsp cinnamon, 3 Tbsp chopped walnuts or peanuts</li><li>Neutral oil for frying (generous)</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE — we use water instead of milk in the dough, so these can finish a meat meal. Naturally dairy-free; just confirm pareve sugar and plain nuts.</p>
+        <h3>How to make it</h3><ol><li>Mix flour, sugar, salt and yeast; add the warm water and 1 Tbsp oil and stir into a sticky, soft dough.</li><li>Cover and let rise in a warm spot 30–45 minutes until puffy (start this dish early in the session).</li><li>Mix the brown sugar, cinnamon and chopped nuts for the filling.</li><li>Oil your hands, pinch off a ball, flatten it, add a spoonful of filling, and pinch the edges shut into a stuffed ball.</li><li>Fry seam-side down in a generous layer of oil over medium heat; after 1 minute press flat into a disc.</li><li>Fry 2 minutes per side until deep golden and crisp, the sugar melting into molten caramel.</li><li>Cool 2 minutes (the filling is lava-hot!) and enjoy the gooey center.</li></ol>
+        <h3>A little story</h3><p class="story">Hotteok is the king of Korean winter street food. Picture a cold night market, steam rising, a vendor pressing these sizzling pancakes on a griddle and handing them over folded in a paper cup — the brown-sugar center molten and the edges shattering-crisp. Making them is pure joy: the sealing, the press, the sizzle, the gooey reveal. A sweet, hands-on note to cook with someone — just don&#x27;t race each other to the first bite and burn your tongue.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="honeytteok" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Dessert</span>
+      <h2>Sweet Rice Cakes <span class="kr">꿀떡 · kkul-tteok</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/honeytteok_poster.jpg" alt="Sweet Rice Cakes recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>300 g plain rice cakes / tteok (store-bought; rice flour &amp; water = pareve)</li><li>3 Tbsp honey (or silan / date syrup)</li><li>1 Tbsp toasted sesame seeds</li><li>1 tsp toasted sesame oil (optional, for sheen)</li><li>From-scratch option: 1 cup (160 g) glutinous (sweet) rice flour + 1/2 cup hot water + pinch salt, kneaded, cut, and boiled</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE. Plain tteok is just rice flour and water — confirm the package is kosher-certified and pareve. Honey and sesame are pareve. A naturally pareve dessert, perfect after a meat meal.</p>
+        <h3>How to make it</h3><ol><li>If using store-bought tteok, soak briefly in warm water if hard, then boil 2–3 minutes until they float and turn soft and chewy.</li><li>Drain and rinse briefly in cool water so they don&#x27;t stick into one clump, then drain well.</li><li>Toss the warm tteok with honey (and the optional drop of sesame oil) until glossy and coated.</li><li>Roll in toasted sesame seeds.</li><li>Serve on little skewers or in a bowl — chewy, sweet and nutty.</li></ol>
+        <h3>A little story</h3><p class="story">Tteok — chewy rice cakes — are woven through every important moment in Korean life: birthdays, weddings, holidays, a baby&#x27;s first hundred days. Sharing tteok is a way of sharing good fortune, and there&#x27;s even a tradition of giving rice cakes to new neighbors. Kkul means honey, so kkul-tteok is the sweet, glossy, sesame-rolled version — small, chewy and a little addictive. A perfect sweet bite to send everyone home happy.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+  <article id="kimchi" class="recipe reveal" data-label="pareve">
+    <div class="rhead"><span class="badge pareve"><span class="b-dot"></span>PAREVE</span> <span class="course">Take-Home Gift</span>
+      <h2>Napa Cabbage Kimchi <span class="kr">김치 · kim-chi</span></h2></div>
+    <div class="rgrid">
+      <img class="poster" loading="lazy" src="img/kimchi_poster.jpg" alt="Napa Cabbage Kimchi recipe poster">
+      <div class="rtext">
+        <h3>Ingredients</h3><ul><li>1 napa cabbage</li><li>1/4 cup coarse salt</li><li>4 Tbsp gochugaru (kosher-certified)</li><li>4 cloves garlic, minced; 1 tsp grated ginger</li><li>3 scallions, cut into pieces</li><li>1 Tbsp soy sauce (in place of fish sauce), 1 tsp sugar</li><li>A clean glass jar with a lid</li></ul>
+        <p class="kn"><b>Kosher note:</b> PAREVE and kosher-friendly: we use soy sauce instead of the traditional fish sauce, and kosher-certified gochugaru. Check the napa cabbage carefully for insects, as required, before salting.</p>
+        <h3>How to make it</h3><ol><li>Cut the cabbage into bite-size pieces, toss thoroughly with the salt, and let sit 1–2 hours until floppy, then rinse well and drain.</li><li>Make a paste of gochugaru, garlic, ginger, soy sauce and sugar.</li><li>Wearing gloves, massage the paste into the cabbage and scallions until evenly coated red.</li><li>Pack tightly into a clean glass jar, pressing down and leaving a couple of centimeters at the top.</li><li>Leave at room temperature 1–2 days to start fermenting, then move to the fridge — it keeps getting tastier for weeks.</li></ol>
+        <h3>A little story</h3><p class="story">Kimchi is the soul of the Korean table — served at virtually every meal and central to the communal autumn tradition of kimjang, when families and neighbors gather to make enough to last the winter (a custom recognized by UNESCO). Because real kimchi needs time to ferment, this is your take-home gift: you&#x27;ll seal your own jar today, carry it home, and watch it transform over the coming days — a living souvenir of the workshop, with our label on top.</p>
+      </div>
+    </div>
+    <p class="back"><a href="index.html#menu">← back to the menu</a></p>
+  </article>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <b style="font-family:'Fraunces',serif;color:#fff;font-size:1.1rem;">Batya's Kosher Korean Kitchen</b><br>
+    Hashmonaim, Israel · <a href="index.html">back to home</a> · <a href="recipe-book.pdf" download="Batya's Kosher Korean Kitchen - Recipe Book.pdf">recipe book PDF</a> · <a href="index.html#downloads">all downloads</a>
+    <div class="fk">Strictly kosher · Meat/Pareve labeled · No pork · No shellfish</div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <div class="mc-txt">Batya's Kosher Korean Kitchen</div>
+  <a class="btn sm" href="index.html#menu">← Workshop</a>
+</div>
+
+<script>
+(function(){
+  /* Sticky header shadow */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Reveal recipes */
+  var revealEls = document.querySelectorAll('.recipe.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold:0.08});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else { revealEls.forEach(function(el){ el.classList.add('is-visible'); }); }
+
+  /* Meat / Pareve filter */
+  var filter = document.getElementById('filter');
+  var recipes = document.querySelectorAll('.recipe');
+  filter.addEventListener('click', function(e){
+    var btn = e.target.closest('.fbtn'); if(!btn || btn.id === 'printBtn') return;
+    filter.querySelectorAll('.fbtn').forEach(function(b){ if(b.id!=='printBtn') b.classList.remove('active'); });
+    btn.classList.add('active');
+    var f = btn.getAttribute('data-f');
+    recipes.forEach(function(r){
+      r.style.display = (f === 'all' || r.getAttribute('data-label') === f) ? '' : 'none';
+    });
+  });
+
+  /* Print */
+  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+})();
+</script>
+</body></html>
